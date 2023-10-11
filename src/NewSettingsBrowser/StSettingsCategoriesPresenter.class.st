@@ -52,7 +52,6 @@ StSettingsCategoriesPresenter >> initializePresenters [
 
 	categoryListPresenter := self newComponentList
 		items: self categoriesAsPresenters;
-		whenSelectionChangedDo: [ : item | self updateDetailSetting: item selectedItem ];
 		yourself.
 ]
 
@@ -66,5 +65,6 @@ StSettingsCategoriesPresenter >> settingsCategories [
 { #category : 'initialization' }
 StSettingsCategoriesPresenter >> updateDetailSetting: item [ 
 
-	item node allChildren
+	self owner updateDetailSetting: item node allChildren
+	
 ]
