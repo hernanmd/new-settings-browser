@@ -1,5 +1,5 @@
 Class {
-	#name : 'SBSearchToolbarPresenter',
+	#name : 'SBLegacySearchToolbarPresenter',
 	#superclass : 'SpPresenter',
 	#instVars : [
 		'searchLabelPresenter',
@@ -7,12 +7,13 @@ Class {
 		'regexpCheckboxPresenter',
 		'searchedTextList'
 	],
-	#category : 'NewSettingsBrowser',
-	#package : 'NewSettingsBrowser'
+	#category : 'NewSettingsBrowser-Legacy',
+	#package : 'NewSettingsBrowser',
+	#tag : 'Legacy'
 }
 
 { #category : 'initialization' }
-SBSearchToolbarPresenter >> addToSearchedTextList: aString [
+SBLegacySearchToolbarPresenter >> addToSearchedTextList: aString [
 
 	(self searchedTextList includes: aString)
 		ifFalse: [ 
@@ -22,7 +23,7 @@ SBSearchToolbarPresenter >> addToSearchedTextList: aString [
 ]
 
 { #category : 'initialization' }
-SBSearchToolbarPresenter >> applyFilters [
+SBLegacySearchToolbarPresenter >> applyFilters [
 
 	self searchedText
 		ifNotEmpty: [ self updateAccordingTo: self textFilter ].
@@ -35,14 +36,14 @@ SBSearchToolbarPresenter >> applyFilters [
 ]
 
 { #category : 'initialization' }
-SBSearchToolbarPresenter >> changeSearchedText: aString [
+SBLegacySearchToolbarPresenter >> changeSearchedText: aString [
 	self searchedText: aString.
 	self applyFilters.
 	^ true
 ]
 
 { #category : 'layout' }
-SBSearchToolbarPresenter >> defaultLayout [ 
+SBLegacySearchToolbarPresenter >> defaultLayout [ 
 
 	^ SpBoxLayout newLeftToRight 
 		vAlignCenter;	
@@ -53,7 +54,7 @@ SBSearchToolbarPresenter >> defaultLayout [
 ]
 
 { #category : 'initialization' }
-SBSearchToolbarPresenter >> initializePresenters [
+SBLegacySearchToolbarPresenter >> initializePresenters [
 
 	searchLabelPresenter := self newLabel label: 'Search for:'; yourself.
 	searchToolbarPresenter := self newDropList
@@ -68,43 +69,43 @@ SBSearchToolbarPresenter >> initializePresenters [
 ]
 
 { #category : 'accessing' }
-SBSearchToolbarPresenter >> regexpCheckboxPresenter [
+SBLegacySearchToolbarPresenter >> regexpCheckboxPresenter [
 
 	^ regexpCheckboxPresenter
 ]
 
 { #category : 'accessing' }
-SBSearchToolbarPresenter >> regexpCheckboxPresenter: anObject [
+SBLegacySearchToolbarPresenter >> regexpCheckboxPresenter: anObject [
 
 	regexpCheckboxPresenter := anObject
 ]
 
 { #category : 'accessing' }
-SBSearchToolbarPresenter >> searchLabelPresenter [
+SBLegacySearchToolbarPresenter >> searchLabelPresenter [
 
 	^ searchLabelPresenter
 ]
 
 { #category : 'accessing' }
-SBSearchToolbarPresenter >> searchLabelPresenter: anObject [
+SBLegacySearchToolbarPresenter >> searchLabelPresenter: anObject [
 
 	searchLabelPresenter := anObject
 ]
 
 { #category : 'accessing' }
-SBSearchToolbarPresenter >> searchToolbarPresenter [
+SBLegacySearchToolbarPresenter >> searchToolbarPresenter [
 
 	^ searchToolbarPresenter
 ]
 
 { #category : 'accessing' }
-SBSearchToolbarPresenter >> searchToolbarPresenter: anObject [
+SBLegacySearchToolbarPresenter >> searchToolbarPresenter: anObject [
 
 	searchToolbarPresenter := anObject
 ]
 
 { #category : 'initialization' }
-SBSearchToolbarPresenter >> searchedTextList [
+SBLegacySearchToolbarPresenter >> searchedTextList [
 	"Keep a list of previously entered filtering tokens"
 
 	^ searchedTextList 

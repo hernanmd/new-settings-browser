@@ -1,22 +1,23 @@
 Class {
-	#name : 'SBPackageChooserPresenter',
+	#name : 'SBLegacyPackageChooserPresenter',
 	#superclass : 'SpPresenter',
 	#instVars : [
 		'packagesSelection'
 	],
-	#category : 'NewSettingsBrowser',
-	#package : 'NewSettingsBrowser'
+	#category : 'NewSettingsBrowser-Legacy',
+	#package : 'NewSettingsBrowser',
+	#tag : 'Legacy'
 }
 
 { #category : 'accessing - packages' }
-SBPackageChooserPresenter >> allPackagesWithSettings [
+SBLegacyPackageChooserPresenter >> allPackagesWithSettings [
 	"Answer a <Collection> of packages (RPackage) which contains settings"
 
 	^ (self packagesList collect: #receiverPackage) asSet asSortedCollection: [ :a :b | a packageName < b packageName ] 
 ]
 
 { #category : 'accessing - packages' }
-SBPackageChooserPresenter >> constructPackagesWithSettingsSet [
+SBLegacyPackageChooserPresenter >> constructPackagesWithSettingsSet [
 
 	| result |
 	result := self allPackagesWithSettings difference: self packagesSelection.
@@ -24,7 +25,7 @@ SBPackageChooserPresenter >> constructPackagesWithSettingsSet [
 ]
 
 { #category : 'showing' }
-SBPackageChooserPresenter >> open [
+SBLegacyPackageChooserPresenter >> open [
 	"Open a package chooser window to select with packages with settings"
 
 	((SpChooserPresenter
@@ -39,13 +40,13 @@ SBPackageChooserPresenter >> open [
 ]
 
 { #category : 'accessing - packages' }
-SBPackageChooserPresenter >> packagesList [
+SBLegacyPackageChooserPresenter >> packagesList [
 
 	^ self treeHolder nodeList
 ]
 
 { #category : 'accessing' }
-SBPackageChooserPresenter >> packagesSelection [
+SBLegacyPackageChooserPresenter >> packagesSelection [
 	"Answer a <Collection> of selected <RPackage>"
 	
 	^ packagesSelection
@@ -53,13 +54,13 @@ SBPackageChooserPresenter >> packagesSelection [
 ]
 
 { #category : 'accessing' }
-SBPackageChooserPresenter >> packagesSelection: anObject [
+SBLegacyPackageChooserPresenter >> packagesSelection: anObject [
 
 	packagesSelection := anObject
 ]
 
 { #category : 'accessing - packages' }
-SBPackageChooserPresenter >> treeHolder [
+SBLegacyPackageChooserPresenter >> treeHolder [
 
 	^ self owner treeHolder
 ]

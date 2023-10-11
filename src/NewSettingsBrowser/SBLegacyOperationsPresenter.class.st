@@ -1,5 +1,5 @@
 Class {
-	#name : 'SBOperationsPresenter',
+	#name : 'SBLegacyOperationsPresenter',
 	#superclass : 'SpPresenter',
 	#instVars : [
 		'expandAllButtonPresenter',
@@ -9,12 +9,13 @@ Class {
 		'loadButtonPresenter',
 		'packageChooserPresenter'
 	],
-	#category : 'NewSettingsBrowser',
-	#package : 'NewSettingsBrowser'
+	#category : 'NewSettingsBrowser-Legacy',
+	#package : 'NewSettingsBrowser',
+	#tag : 'Legacy'
 }
 
 { #category : 'layout' }
-SBOperationsPresenter >> defaultLayout [ 
+SBLegacyOperationsPresenter >> defaultLayout [ 
 
 	^ SpBoxLayout newLeftToRight 
 		spacing: 5;
@@ -28,28 +29,28 @@ SBOperationsPresenter >> defaultLayout [
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> expandAllButtonPresenter [
+SBLegacyOperationsPresenter >> expandAllButtonPresenter [
 
 	^ expandAllButtonPresenter
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> expandAllButtonPresenter: anObject [
+SBLegacyOperationsPresenter >> expandAllButtonPresenter: anObject [
 
 	expandAllButtonPresenter := anObject
 ]
 
 { #category : 'accessing - packages' }
-SBOperationsPresenter >> initializePresenters [
+SBLegacyOperationsPresenter >> initializePresenters [
 
 	expandAllButtonPresenter := self newButton 
 		action: [ self owner expandAll ];
 		help: 'Expand all setting options';
 		label: 'Expand all'; 
 		yourself.
-	searchToolbarPresenter := SBSearchToolbarPresenter new.
+	searchToolbarPresenter := SBLegacySearchToolbarPresenter new.
 	
-	packageChooserPresenter := self instantiate: SBPackageChooserPresenter on: self.
+	packageChooserPresenter := self instantiate: SBLegacyPackageChooserPresenter on: self.
 	packagesButtonPresenter := self newButton 
 		label: 'Choose packages'; 
 		action: [ self openPackageChooser ];
@@ -67,88 +68,88 @@ SBOperationsPresenter >> initializePresenters [
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> loadButtonPresenter [
+SBLegacyOperationsPresenter >> loadButtonPresenter [
 
 	^ loadButtonPresenter
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> loadButtonPresenter: anObject [
+SBLegacyOperationsPresenter >> loadButtonPresenter: anObject [
 
 	loadButtonPresenter := anObject
 ]
 
 { #category : 'accessing - packages' }
-SBOperationsPresenter >> loadSettings [
+SBLegacyOperationsPresenter >> loadSettings [
 
 	self treeHolder updateSettingNodes.
 	self inform: 'Settings has been updated from the disk.'
 ]
 
 { #category : 'initialization' }
-SBOperationsPresenter >> openPackageChooser [
+SBLegacyOperationsPresenter >> openPackageChooser [
 	"Open a package chooser window to select with packages with settings"
 
 	self packageChooserPresenter open
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> packageChooserPresenter [
+SBLegacyOperationsPresenter >> packageChooserPresenter [
 
 	^ packageChooserPresenter
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> packageChooserPresenter: anObject [
+SBLegacyOperationsPresenter >> packageChooserPresenter: anObject [
 
 	packageChooserPresenter := anObject
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> packagesButtonPresenter [
+SBLegacyOperationsPresenter >> packagesButtonPresenter [
 
 	^ packagesButtonPresenter
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> packagesButtonPresenter: anObject [
+SBLegacyOperationsPresenter >> packagesButtonPresenter: anObject [
 
 	packagesButtonPresenter := anObject
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> searchToolbarPresenter [
+SBLegacyOperationsPresenter >> searchToolbarPresenter [
 
 	^ searchToolbarPresenter
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> searchToolbarPresenter: anObject [
+SBLegacyOperationsPresenter >> searchToolbarPresenter: anObject [
 
 	searchToolbarPresenter := anObject
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> storeButtonPresenter [
+SBLegacyOperationsPresenter >> storeButtonPresenter [
 
 	^ storeButtonPresenter
 ]
 
 { #category : 'accessing' }
-SBOperationsPresenter >> storeButtonPresenter: anObject [
+SBLegacyOperationsPresenter >> storeButtonPresenter: anObject [
 
 	storeButtonPresenter := anObject
 ]
 
 { #category : 'accessing - packages' }
-SBOperationsPresenter >> storeSettings [
+SBLegacyOperationsPresenter >> storeSettings [
 
 	self treeHolder storeSettingNodes.
 	self inform: 'Settings has been stored on the disk.'
 ]
 
 { #category : 'initialization' }
-SBOperationsPresenter >> treeHolder [
+SBLegacyOperationsPresenter >> treeHolder [
 	"Answer the receiver's setting tree"
 
 	^ self owner treeHolder

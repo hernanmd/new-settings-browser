@@ -4,7 +4,7 @@ Main settings window.
 It contains a tree which holds the settings.
 "
 Class {
-	#name : 'SBMainPresenter',
+	#name : 'SBLegacyMainPresenter',
 	#superclass : 'SpPresenter',
 	#instVars : [
 		'operationsPresenter',
@@ -12,12 +12,13 @@ Class {
 		'treeHolder',
 		'packageChooser'
 	],
-	#category : 'NewSettingsBrowser',
-	#package : 'NewSettingsBrowser'
+	#category : 'NewSettingsBrowser-Legacy',
+	#package : 'NewSettingsBrowser',
+	#tag : 'Legacy'
 }
 
 { #category : 'opening' }
-SBMainPresenter class >> browse: aCollectionOfKeywords [
+SBLegacyMainPresenter class >> browse: aCollectionOfKeywords [
 	"open a SettingBrowser view which is able to browse all settings
 	that are declared with a pragma keyword which is at least
 	one of the string contained in aCollectionOfKeywords
@@ -31,7 +32,7 @@ SBMainPresenter class >> browse: aCollectionOfKeywords [
 ]
 
 { #category : 'opening' }
-SBMainPresenter class >> forKeywords: aCollectionOfKeywords [
+SBLegacyMainPresenter class >> forKeywords: aCollectionOfKeywords [
 	"create a new SettingBrowser initialized with a set of pragma keywords"
 
 	^ self 
@@ -41,20 +42,20 @@ SBMainPresenter class >> forKeywords: aCollectionOfKeywords [
 ]
 
 { #category : 'opening' }
-SBMainPresenter class >> openOnSystemSettings [
+SBLegacyMainPresenter class >> openOnSystemSettings [
 	"Open a window with the receiver's system settings"
 
 	self browse: self settingsKeywords
 ]
 
 { #category : 'opening' }
-SBMainPresenter class >> settingsKeywords [
+SBLegacyMainPresenter class >> settingsKeywords [
 
 	^ (Pragma allNamed: #settingPragmaProcessor) collect: [: p | p method selector]
 ]
 
 { #category : 'accessing - menu' }
-SBMainPresenter >> collapseAll [
+SBLegacyMainPresenter >> collapseAll [
 	"Collapse all settings in the receiever"
 	
 	self tablePresenter collapseAll
@@ -62,7 +63,7 @@ SBMainPresenter >> collapseAll [
 ]
 
 { #category : 'layout' }
-SBMainPresenter >> defaultLayout [
+SBLegacyMainPresenter >> defaultLayout [
 
 	^ SpBoxLayout newTopToBottom
 		add: operationsPresenter expand: false fill: true padding: 10;
@@ -72,7 +73,7 @@ SBMainPresenter >> defaultLayout [
 ]
 
 { #category : 'accessing - menu' }
-SBMainPresenter >> expandAll [
+SBLegacyMainPresenter >> expandAll [
 	"Expand all settings in the receiever"
 	
 	self tablePresenter expandAll
@@ -80,20 +81,20 @@ SBMainPresenter >> expandAll [
 ]
 
 { #category : 'initialization' }
-SBMainPresenter >> initialExtent [ 
+SBLegacyMainPresenter >> initialExtent [ 
 
 	^ 800 @ 600
 ]
 
 { #category : 'initialization' }
-SBMainPresenter >> initializeOperationsPresenter [
+SBLegacyMainPresenter >> initializeOperationsPresenter [
 
-	operationsPresenter := self instantiate: SBOperationsPresenter on: self
+	operationsPresenter := self instantiate: SBLegacyOperationsPresenter on: self
 	
 ]
 
 { #category : 'initialization' }
-SBMainPresenter >> initializePresenters [
+SBLegacyMainPresenter >> initializePresenters [
 
 	self initializeOperationsPresenter.
 	self initializeTablePresenter.
@@ -101,7 +102,7 @@ SBMainPresenter >> initializePresenters [
 ]
 
 { #category : 'initialization' }
-SBMainPresenter >> initializeTablePresenter [
+SBLegacyMainPresenter >> initializeTablePresenter [
 
 	tablePresenter := self newTreeTable.
 	tablePresenter
@@ -130,7 +131,7 @@ SBMainPresenter >> initializeTablePresenter [
 ]
 
 { #category : 'accessing - menu' }
-SBMainPresenter >> menu [
+SBLegacyMainPresenter >> menu [
 	^ self newMenu
 		title: 'Setting menu';
 		addGroup: [ :aGroup | 
@@ -173,32 +174,32 @@ SBMainPresenter >> menu [
 ]
 
 { #category : 'accessing - model' }
-SBMainPresenter >> newTreeHolder [
+SBLegacyMainPresenter >> newTreeHolder [
 
 	^ SettingTree new acceptableKeywords: self settingsKeywords
 ]
 
 { #category : 'accessing' }
-SBMainPresenter >> operationsPresenter [
+SBLegacyMainPresenter >> operationsPresenter [
 
 	^ operationsPresenter
 ]
 
 { #category : 'accessing' }
-SBMainPresenter >> operationsPresenter: anObject [
+SBLegacyMainPresenter >> operationsPresenter: anObject [
 
 	operationsPresenter := anObject
 ]
 
 { #category : 'accessing - model' }
-SBMainPresenter >> setModelBeforeInitialization: acceptableKeywords [
+SBLegacyMainPresenter >> setModelBeforeInitialization: acceptableKeywords [
 
 	treeHolder := self newTreeHolder.
 	treeHolder whenChangedSend: #treeChanged: to: self
 ]
 
 { #category : 'accessing - model' }
-SBMainPresenter >> settingValueFor: setting [
+SBLegacyMainPresenter >> settingValueFor: setting [
 
 	^ setting contents 
 		ifNotEmpty: [ : settingContents | String empty ]
@@ -206,37 +207,37 @@ SBMainPresenter >> settingValueFor: setting [
 ]
 
 { #category : 'opening' }
-SBMainPresenter >> settingsKeywords [
+SBLegacyMainPresenter >> settingsKeywords [
 
 	^ self class settingsKeywords
 ]
 
 { #category : 'accessing' }
-SBMainPresenter >> tablePresenter [
+SBLegacyMainPresenter >> tablePresenter [
 
 	^ tablePresenter
 ]
 
 { #category : 'accessing' }
-SBMainPresenter >> tablePresenter: anObject [
+SBLegacyMainPresenter >> tablePresenter: anObject [
 
 	tablePresenter := anObject
 ]
 
 { #category : 'initialization' }
-SBMainPresenter >> title [
+SBLegacyMainPresenter >> title [
 
 	^ 'Settings Browser'
 ]
 
 { #category : 'accessing' }
-SBMainPresenter >> treeHolder [
+SBLegacyMainPresenter >> treeHolder [
 
 	^ treeHolder
 ]
 
 { #category : 'accessing' }
-SBMainPresenter >> treeHolder: anObject [
+SBLegacyMainPresenter >> treeHolder: anObject [
 
 	treeHolder := anObject
 ]
