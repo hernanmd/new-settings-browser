@@ -1,6 +1,9 @@
 Class {
 	#name : 'StSettingsApplication',
 	#superclass : 'SpApplication',
+	#instVars : [
+		'iconMap'
+	],
 	#category : 'NewSettingsBrowser-Modernized',
 	#package : 'NewSettingsBrowser',
 	#tag : 'Modernized'
@@ -24,6 +27,34 @@ StSettingsApplication class >> open [
 	<script>
 
 	self new start.
+]
+
+{ #category : 'accessing' }
+StSettingsApplication >> iconMap [
+
+	^ iconMap
+		ifNil: [ iconMap := self initializeIconMap ]
+]
+
+{ #category : 'accessing' }
+StSettingsApplication >> iconMapAt: aString [ 
+
+	^ self iconMap at: aString
+]
+
+{ #category : 'initialization' }
+StSettingsApplication >> initializeIconMap [
+
+	^ Dictionary new
+		at: #appearance put: #half2Icon;
+		at: #codeBrowsing put: #nil;
+		yourself
+]
+
+{ #category : 'private - factory' }
+StSettingsApplication >> newIconProvider [
+	
+	^ SpRadixThemeIconProvider new
 ]
 
 { #category : 'running' }

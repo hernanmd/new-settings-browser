@@ -43,10 +43,11 @@ StSettingsMainPresenter >> initializeWindow: aWindowPresenter [
 		centered
 ]
 
-{ #category : 'initialization' }
+{ #category : 'REMOVE' }
 StSettingsMainPresenter >> updateDetailSetting: aCollection [ 
+	<delete>
 
 	self layout 
 		replace: detailsPresenter
-		with: (self instantiate: StSettingsDetailPresenter on: aCollection)
+		with: (self instantiate: StSettingsCategoryDetailPresenter on: aCollection)
 ]

@@ -13,7 +13,9 @@ Class {
 { #category : 'initialization' }
 StSettingsPanesPresenter >> connectPresenters [ 
 
-	mainCategoriesPresenter transmitTo: detailsPresenter
+	mainCategoriesPresenter 
+		transmitTo: detailsPresenter
+		transform: [ : aValue | self halt. ]
 ]
 
 { #category : 'layout' }
@@ -30,5 +32,5 @@ StSettingsPanesPresenter >> defaultLayout [
 StSettingsPanesPresenter >> initializePresenters [
 
 	mainCategoriesPresenter := self instantiate: StSettingsCategoriesPresenter on: self.
-	detailsPresenter := self newNullPresenter.
+	detailsPresenter := self instantiate: StSettingsCategoryDetailPresenter on: self.
 ]

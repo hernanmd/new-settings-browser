@@ -36,6 +36,12 @@ StSettingsTree >> newTreeHolder [
 		yourself
 ]
 
+{ #category : 'accessing' }
+StSettingsTree >> nodeList: aCollection [ 
+
+	nodeList := aCollection
+]
+
 { #category : 'instance creation' }
 StSettingsTree >> settingsKeywords [
 

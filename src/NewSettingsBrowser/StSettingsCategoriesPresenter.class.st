@@ -15,7 +15,7 @@ StSettingsCategoriesPresenter >> categoriesAsPresenters [
 
 	^ self settingsCategories collect: [ : node | 
 		self 
-			instantiate: StSettingsCategoryPresenter
+			instantiate: StSettingsCategoryItemPresenter
 			on: node  ]
 ]
 
@@ -39,11 +39,17 @@ StSettingsCategoriesPresenter >> defaultLayout [
 		yourself.
 ]
 
+{ #category : 'ports' }
+StSettingsCategoriesPresenter >> defaultOutputPort [ 
+
+	^ self categoryListPresenter
+]
+
 { #category : 'initialization' }
 StSettingsCategoriesPresenter >> defaultSettingsCategories [
 	"Answer a <Collection> of <SBCategory> to be presented by default in the receiver"
 	
-	^ StSettingsCategoryPresenter defaultCategories
+	^ StSettingsCategoryItemPresenter defaultCategories
 	
 ]
 
@@ -62,7 +68,7 @@ StSettingsCategoriesPresenter >> settingsCategories [
 		ifNil: [ settingsCategories := self defaultSettingsCategories ]
 ]
 
-{ #category : 'initialization' }
+{ #category : 'REMOVE' }
 StSettingsCategoriesPresenter >> updateDetailSetting: item [ 
 
 	self owner updateDetailSetting: item node allChildren
