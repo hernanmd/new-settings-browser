@@ -1,5 +1,5 @@
 Class {
-	#name : 'SpRadixThemeIconProvider',
+	#name : 'StSettingsBrowserIconProvider',
 	#superclass : 'SpPharoThemeIconProvider',
 	#category : 'NewSettingsBrowser-IconProvider',
 	#package : 'NewSettingsBrowser',
@@ -7,9 +7,9 @@ Class {
 }
 
 { #category : 'accessing' }
-SpRadixThemeIconProvider >> iconNamed: aName ifAbsent: aBlock [
+StSettingsBrowserIconProvider >> iconNamed: aName ifAbsent: aBlock [
 
 	aName ifNil: [ ^ aBlock value ].
 
-	^ RadixIcons perform: aName
+	^ StSettingIcons perform: aName
 ]

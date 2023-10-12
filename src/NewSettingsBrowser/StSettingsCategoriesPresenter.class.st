@@ -58,6 +58,7 @@ StSettingsCategoriesPresenter >> initializePresenters [
 
 	categoryListPresenter := self newComponentList
 		items: self categoriesAsPresenters;
+		addStyle: 'superCategoryList';
 		yourself.
 ]
 

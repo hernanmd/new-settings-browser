@@ -26,6 +26,7 @@ StSettingsCategoryItemPresenter class >> defaultCategories [
 StSettingsCategoryItemPresenter >> defaultLayout [ 
 
 	^ SpBoxLayout newLeftToRight 
+		add: iconPresenter width: 35;
 		add: labelPresenter;
 		yourself
 ]
@@ -73,7 +74,7 @@ StSettingsCategoryItemPresenter >> node [
 	^ node
 ]
 
-{ #category : 'initialization' }
+{ #category : 'accessing - model' }
 StSettingsCategoryItemPresenter >> setModelBeforeInitialization: aSettingNode [
 
 	node := aSettingNode

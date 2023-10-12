@@ -46,15 +46,23 @@ StSettingsApplication >> iconMapAt: aString [
 StSettingsApplication >> initializeIconMap [
 
 	^ Dictionary new
-		at: #appearance put: #half2Icon;
-		at: #codeBrowsing put: #nil;
+		at: #appearance put: #appearanceIcon;
+		at: #codeBrowsing put: #refactoringIcon;
+		at: #compiler put: #compilerIcon;
+		at: #network put: #networkIcon;
+		at: #pharoSystem put: #systemIcon;
+		at: #refactoring put: #refactoringIcon;
+		at: #shortcuts put: #shortcutsIcon;
+		at: #taskitExecution put: #taskitIcon;
+		at: #codeEditing put: #texteditorIcon;
+		at: #tools put: #toolsIcon;
 		yourself
 ]
 
 { #category : 'private - factory' }
 StSettingsApplication >> newIconProvider [
 	
-	^ SpRadixThemeIconProvider new
+	^ StSettingsBrowserIconProvider new , SpPharoThemeIconProvider new
 ]
 
 { #category : 'running' }
@@ -62,4 +70,14 @@ StSettingsApplication >> start [
 	" Private - See superimplementor's comment "
 
 	(StSettingsMainPresenter newApplication: self) open
+]
+
+{ #category : 'adding' }
+StSettingsApplication >> styleSheet [
+
+	^ SpStyle defaultStyleSheet , 
+	    (SpStyleVariableSTONReader fromString: '.application [
+    .superCategoryList [ Geometry { #height:130 } ]
+]')
+
 ]
