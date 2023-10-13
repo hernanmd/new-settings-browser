@@ -12,7 +12,7 @@ Class {
 { #category : 'initialization' }
 StSettingsCategoryDetailPresenter >> defaultInputPort [ 
 
-	^  settingsListPresenter
+	^ SpListItemsPort newPresenter: self
 
 ]
 
@@ -35,7 +35,10 @@ StSettingsCategoryDetailPresenter >> initializePresenters [
 StSettingsCategoryDetailPresenter >> items: aCollection [ 
 
 	self halt.
-	settingsListPresenter items: aCollection
+	settingsListPresenter items: (aCollection collect: [ : node | 
+		(self 
+			instantiate: StSettingsCategoryItemPresenter
+			on: node) ])
 ]
 
 { #category : 'accessing' }
