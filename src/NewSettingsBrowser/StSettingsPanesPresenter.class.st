@@ -22,7 +22,7 @@ StSettingsPanesPresenter >> connectPresenters [
 StSettingsPanesPresenter >> defaultLayout [
 
 	^ SpPanedLayout newHorizontal 
-			positionOfSlider: 0.3;		
+			positionOfSlider: 0.2;		
 			add: mainCategoriesPresenter;
 			add: detailsPresenter;
 			yourself

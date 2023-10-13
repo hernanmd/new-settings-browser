@@ -25,8 +25,8 @@ StSettingsCategoryItemPresenter class >> defaultCategories [
 { #category : 'initialization' }
 StSettingsCategoryItemPresenter >> defaultLayout [ 
 
-	^ SpBoxLayout newLeftToRight 
-		vAlignCenter;
+	^ SpBoxLayout newTopToBottom 
+		hAlignCenter;
 		add: iconPresenter width: 35;
 		add: labelPresenter;
 		yourself

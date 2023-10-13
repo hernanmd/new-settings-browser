@@ -47,9 +47,9 @@ StSettingsApplication >> initializeIconMap [
 
 	^ Dictionary new
 		at: #appearance put: #appearanceIcon;
-		at: #codeBrowsing put: #refactoringIcon;
+		at: #codeBrowsing put: #browsingIcon;
 		at: #compiler put: #compilerIcon;
-		at: #network put: #networkIcon;
+		at: #network put: #networkingIcon;
 		at: #pharoSystem put: #systemIcon;
 		at: #refactoring put: #refactoringIcon;
 		at: #shortcuts put: #shortcutsIcon;
@@ -77,7 +77,7 @@ StSettingsApplication >> styleSheet [
 
 	^ SpStyle defaultStyleSheet , 
 	    (SpStyleVariableSTONReader fromString: '.application [
-    .superCategoryList [ Geometry { #height: 60 } ]
+    .superCategoryList [ Geometry { #height: 70 } ]
 ]')
 
 ]
