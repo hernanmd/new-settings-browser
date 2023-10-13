@@ -5,7 +5,9 @@ Class {
 		'item',
 		'pragma',
 		'parentName',
-		'model'
+		'model',
+		'title',
+		'detailSettingsListPresenter'
 	],
 	#category : 'NewSettingsBrowser-Modernized',
 	#package : 'NewSettingsBrowser',
@@ -22,6 +24,23 @@ StSettingNode class >> with: aPragmaSetting [
 StSettingNode >> allChildren [
 
 	^ self model childrenOf: self
+]
+
+{ #category : 'layout' }
+StSettingNode >> defaultLayout [
+
+	^ SpBoxLayout newTopToBottom 
+		add: #title expand: false;
+		add: #detailSettingsListPresenter;
+		yourself
+]
+
+{ #category : 'initialization' }
+StSettingNode >> initializePresenters [
+
+	title := self newLabel.
+	detailSettingsListPresenter := self newComponentList.
+	
 ]
 
 { #category : 'accessing' }

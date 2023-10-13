@@ -77,7 +77,7 @@ StSettingsApplication >> styleSheet [
 
 	^ SpStyle defaultStyleSheet , 
 	    (SpStyleVariableSTONReader fromString: '.application [
-    .superCategoryList [ Geometry { #height:130 } ]
+    .superCategoryList [ Geometry { #height: 60 } ]
 ]')
 
 ]

@@ -14,9 +14,10 @@ Class {
 StSettingsCategoriesPresenter >> categoriesAsPresenters [
 
 	^ self settingsCategories collect: [ : node | 
-		self 
+		(self 
 			instantiate: StSettingsCategoryItemPresenter
-			on: node  ]
+			on: node) 
+				addStyle: 'superCategoryList'  ]
 ]
 
 { #category : 'accessing' }
@@ -58,7 +59,6 @@ StSettingsCategoriesPresenter >> initializePresenters [
 
 	categoryListPresenter := self newComponentList
 		items: self categoriesAsPresenters;
-		addStyle: 'superCategoryList';
 		yourself.
 ]
 

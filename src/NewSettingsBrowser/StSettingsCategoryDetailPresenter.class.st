@@ -12,7 +12,8 @@ Class {
 { #category : 'initialization' }
 StSettingsCategoryDetailPresenter >> defaultInputPort [ 
 
-	^ settingsListPresenter
+	^  settingsListPresenter
+
 ]
 
 { #category : 'layout' }
@@ -33,6 +34,7 @@ StSettingsCategoryDetailPresenter >> initializePresenters [
 { #category : 'initialization' }
 StSettingsCategoryDetailPresenter >> items: aCollection [ 
 
+	self halt.
 	settingsListPresenter items: aCollection
 ]
 

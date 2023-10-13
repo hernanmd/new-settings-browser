@@ -15,7 +15,7 @@ StSettingsPanesPresenter >> connectPresenters [
 
 	mainCategoriesPresenter 
 		transmitTo: detailsPresenter
-		transform: [ : aValue | self halt. ]
+		transform: [ : aCategoryItemPresenter | aCategoryItemPresenter node allChildren ]
 ]
 
 { #category : 'layout' }
