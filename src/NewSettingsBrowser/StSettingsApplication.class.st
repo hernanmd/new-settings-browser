@@ -76,8 +76,19 @@ StSettingsApplication >> start [
 StSettingsApplication >> styleSheet [
 
 	^ SpStyle defaultStyleSheet , 
-	    (SpStyleVariableSTONReader fromString: '.application [
-    .superCategoryList [ Geometry { #height: 70 } ]
-]')
+	    (SpStyleVariableSTONReader fromString: self styleSheetString)
 
+]
+
+{ #category : 'adding' }
+StSettingsApplication >> styleSheetString [
+
+	^ '.application [
+    .superCategoryList [ Geometry { #height: 70 } ],
+	.pageTitle [ 
+		Font { #name : EnvironmentFont(#default), #size : 18 },
+		Container { #borderWidth: 10, #padding: 35 } ],
+	.pageStyle [ 
+		Draw { #backgroundColor: #transparent } ]
+]'
 ]

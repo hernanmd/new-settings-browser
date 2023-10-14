@@ -15,7 +15,7 @@ StSettingsPanesPresenter >> connectPresenters [
 
 	mainCategoriesPresenter 
 		transmitTo: detailsPresenter
-		transform: [ : aCategoryItemPresenter | aCategoryItemPresenter node allChildren ]
+		transform: [ : aCategoryItemPresenter | aCategoryItemPresenter node ]
 ]
 
 { #category : 'layout' }
@@ -32,5 +32,5 @@ StSettingsPanesPresenter >> defaultLayout [
 StSettingsPanesPresenter >> initializePresenters [
 
 	mainCategoriesPresenter := self instantiate: StSettingsCategoriesPresenter on: self.
-	detailsPresenter := self instantiate: StSettingsCategoryDetailPresenter on: self.
+	detailsPresenter := self instantiate: StSettingsCategoryPagePresenter on: self.
 ]

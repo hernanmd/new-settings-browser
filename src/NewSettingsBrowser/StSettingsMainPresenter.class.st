@@ -3,7 +3,6 @@ Class {
 	#superclass : 'SpPresenter',
 	#instVars : [
 		'toolbarPresenter',
-		'mainCategoriesPresenter',
 		'detailsPresenter',
 		'settingsPanesPresenter'
 	],
@@ -49,5 +48,5 @@ StSettingsMainPresenter >> updateDetailSetting: aCollection [
 
 	self layout 
 		replace: detailsPresenter
-		with: (self instantiate: StSettingsCategoryDetailPresenter on: aCollection)
+		with: (self instantiate: StSettingsCategoryPagePresenter on: aCollection)
 ]

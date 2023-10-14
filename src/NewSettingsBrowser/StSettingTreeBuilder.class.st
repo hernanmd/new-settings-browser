@@ -9,5 +9,5 @@ Class {
 { #category : 'accessing' }
 StSettingTreeBuilder >> nodeClass [
 
-	^ StSettingNode
+	^ StSettingNodePresenter
 ]

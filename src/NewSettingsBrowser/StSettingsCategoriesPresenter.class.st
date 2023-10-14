@@ -1,3 +1,7 @@
+"
+Presents a list with the main categories of settings.
+Events triggered by clicking a category are defined in my owner through the transmission protocol, i.e. `StSettingsPanesPresenter >> #connectPresenters`
+"
 Class {
 	#name : 'StSettingsCategoriesPresenter',
 	#superclass : 'SpPresenter',
@@ -71,7 +75,7 @@ StSettingsCategoriesPresenter >> settingsCategories [
 
 { #category : 'REMOVE' }
 StSettingsCategoriesPresenter >> updateDetailSetting: item [ 
-
+	<delete>
 	self owner updateDetailSetting: item node allChildren
 	
 ]

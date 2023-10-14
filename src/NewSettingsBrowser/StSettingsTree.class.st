@@ -12,16 +12,17 @@ Class {
 { #category : 'opening' }
 StSettingsTree class >> settingsKeywords [
 
-	^ (Pragma allNamed: #settingPragmaProcessor) collect: [: p | p method selector ]
+	self halt.
+	^ (Pragma allNamed: #systemsettings) collect: [: p | p method selector ]
 ]
 
 { #category : 'instance creation' }
 StSettingsTree >> newSettingTreeBuilderNodes [
-
+	"Walk over the receiver's pragmas. Build and answer a <Collection> of <StSettingNode>, each one representing a specific setting"
 	| builder |
 
 	builder := StSettingTreeBuilder new.
-	self pragmasDo: [:p | builder buildPragma: p].
+	self pragmasDo: [ :p | builder buildPragma: p ].
 	nodeList := builder nodeList.
 	nodeList do: [:n | n model: self].
 	^ nodeList
@@ -29,9 +30,10 @@ StSettingsTree >> newSettingTreeBuilderNodes [
 
 { #category : 'instance creation' }
 StSettingsTree >> newTreeHolder [
+	"Set the receiver's collector to gather the system setting pragmas"
 
 	^ self
-		acceptableKeywords: self settingsKeywords;
+		acceptableKeywords: { #systemsettings };
 		nodeList: self newSettingTreeBuilderNodes;
 		yourself
 ]
