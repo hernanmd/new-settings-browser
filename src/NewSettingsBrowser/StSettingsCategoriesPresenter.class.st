@@ -52,7 +52,7 @@ StSettingsCategoriesPresenter >> defaultOutputPort [
 
 { #category : 'initialization' }
 StSettingsCategoriesPresenter >> defaultSettingsCategories [
-	"Answer a <Collection> of <SBCategory> to be presented by default in the receiver"
+	"Answer a <Collection> of <StSettingNodePresenter> categories to be presented by default in the receiver"
 	
 	^ StSettingsCategoryItemPresenter defaultCategories
 	

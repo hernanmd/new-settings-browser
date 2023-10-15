@@ -17,7 +17,7 @@ Class {
 
 { #category : 'accessing' }
 StSettingsCategoryItemPresenter class >> defaultCategories [
-	"Answer a <Collection> of <SBCategory> which are the default in the receiver's image"
+	"Answer a <Collection> of <StSettingNodePresenter> representing the default main setting categories in the system"
 	
 	^ StSettingsTree new treeRoots
 ]
@@ -34,6 +34,7 @@ StSettingsCategoryItemPresenter >> defaultLayout [
 
 { #category : 'accessing' }
 StSettingsCategoryItemPresenter >> iconMapAt: aString [ 
+	"Answer a <Symbol> representing an icon selector matching aString"
 
 	^ self application iconMapAt: aString
 ]

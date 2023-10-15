@@ -36,18 +36,12 @@ StSettingsCategoryPagePresenter >> initializePresenters [
 
 ]
 
-{ #category : 'initialization' }
-StSettingsCategoryPagePresenter >> items: aCollection [ 
-
-	settingsListPresenter items: aCollection
-]
-
 { #category : 'accessing - model' }
 StSettingsCategoryPagePresenter >> setModel: aNode [ 
 
 	pageTitle 
 		label: aNode item label;
-		addStyle: 'pageTitle'.		
+		addStyle: 'pageTitle'.
 	settingsListPresenter items: aNode allChildren
 ]
 

@@ -50,6 +50,13 @@ StSettingNodePresenter >> defaultLayout [
 		yourself
 ]
 
+{ #category : 'testing' }
+StSettingNodePresenter >> hasChildren [
+	"Answer <true> if the receiver has sub-settings (i.e. represents a container for other settings)"
+
+	^ self allChildren notEmpty
+]
+
 { #category : 'initialization' }
 StSettingNodePresenter >> initializePresenters [
 

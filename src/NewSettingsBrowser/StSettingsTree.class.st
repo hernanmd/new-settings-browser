@@ -23,9 +23,7 @@ StSettingsTree >> newSettingTreeBuilderNodes [
 
 	builder := StSettingTreeBuilder new.
 	self pragmasDo: [ :p | builder buildPragma: p ].
-	nodeList := builder nodeList.
-	nodeList do: [:n | n model: self].
-	^ nodeList
+	^ builder nodeList collect: [ : n | n model: self ].
 ]
 
 { #category : 'instance creation' }
@@ -52,6 +50,7 @@ StSettingsTree >> settingsKeywords [
 
 { #category : 'instance creation' }
 StSettingsTree >> treeRoots [
+	"Answer a <Collection> of <StSettingNodePresenter> representing the main setting categories in the system"
 
 	^ self newTreeHolder settingTreeRoots
 ]
