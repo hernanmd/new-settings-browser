@@ -1,13 +1,13 @@
 Class {
 	#name : 'StSettingTreeBuilder',
 	#superclass : 'SettingTreeBuilder',
-	#category : 'NewSettingsBrowser-Modernized',
+	#category : 'NewSettingsBrowser-Model',
 	#package : 'NewSettingsBrowser',
-	#tag : 'Modernized'
+	#tag : 'Model'
 }
 
 { #category : 'accessing' }
 StSettingTreeBuilder >> nodeClass [
 
-	^ StSettingNodePresenter
+	^ StSettingNode
 ]

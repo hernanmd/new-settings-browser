@@ -14,14 +14,9 @@ parentNode
 "
 Class {
 	#name : 'StSettingNodePresenter',
-	#superclass : 'SpPresenter',
+	#superclass : 'StSettingPresenter',
 	#instVars : [
-		'item',
-		'pragma',
-		'parentName',
-		'model',
-		'title',
-		'detailSettingsListPresenter'
+		'settingPresenter'
 	],
 	#category : 'NewSettingsBrowser-Modernized',
 	#package : 'NewSettingsBrowser',
@@ -34,108 +29,30 @@ StSettingNodePresenter class >> with: aPragmaSetting [
 	^ self new setItem: aPragmaSetting
 ]
 
-{ #category : 'accessing' }
-StSettingNodePresenter >> allChildren [
-	"Answer a <Collection> of the settings for which the receiver is set as parent"
-
-	^ self model childrenOf: self
-]
-
 { #category : 'layout' }
 StSettingNodePresenter >> defaultLayout [
 
 	^ SpBoxLayout newTopToBottom 
 		add: #title expand: false;
-		add: #detailSettingsListPresenter;
+		add: #settingPresenter;
 		yourself
-]
-
-{ #category : 'testing' }
-StSettingNodePresenter >> hasChildren [
-	"Answer <true> if the receiver has sub-settings (i.e. represents a container for other settings)"
-
-	^ self allChildren notEmpty
 ]
 
 { #category : 'initialization' }
 StSettingNodePresenter >> initializePresenters [
 
-	title := self newLabel.
-	detailSettingsListPresenter := self newComponentList.
-	
+	super initializePresenters.
+	settingPresenter := self settingNodeAsPresenter.
 ]
 
 { #category : 'accessing' }
-StSettingNodePresenter >> item [
-	^ item
+StSettingNodePresenter >> settingNode [
+
+	^ settingNode
 ]
 
 { #category : 'initialization' }
-StSettingNodePresenter >> label: aString [
+StSettingNodePresenter >> settingNodeAsPresenter [
 
-	title label: aString.
-	item label: aString.
-]
-
-{ #category : 'accessing' }
-StSettingNodePresenter >> model [
-
-	^ model
-]
-
-{ #category : 'accessing' }
-StSettingNodePresenter >> model: aStSettingsTree [ 
-
-	model := aStSettingsTree
-]
-
-{ #category : 'accessing' }
-StSettingNodePresenter >> order [
-	^ item order
-]
-
-{ #category : 'accessing' }
-StSettingNodePresenter >> order: anInteger [
-	item order: anInteger
-]
-
-{ #category : 'accessing' }
-StSettingNodePresenter >> parentName [
-	^ parentName
-]
-
-{ #category : 'accessing' }
-StSettingNodePresenter >> parentName: aSymbol [
-	parentName := aSymbol
-]
-
-{ #category : 'accessing' }
-StSettingNodePresenter >> pragma: aPragma [
-	pragma := aPragma
-]
-
-{ #category : 'printing' }
-StSettingNodePresenter >> printOn: aStream [
-	"Private - See superimplementor's comment"
-	
-	super printOn: aStream.
-	aStream
-		nextPutAll: ' [';
-		nextPutAll: self parentName asString;
-		nextPutAll: '] '.
-	self item 
-		ifNotNil: [ : i | 
-			aStream nextPutAll: i name asString  ]
-
-]
-
-{ #category : 'initialization' }
-StSettingNodePresenter >> setItem: aPragmaSetting [ 
-
-	item := aPragmaSetting
-]
-
-{ #category : 'accessing' }
-StSettingNodePresenter >> settingDeclaration [
-	^ self item
+	^ self settingNode asPresenter.
 ]

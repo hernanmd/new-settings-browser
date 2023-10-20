@@ -47,7 +47,7 @@ StSettingsCategoriesPresenter >> defaultLayout [
 { #category : 'ports' }
 StSettingsCategoriesPresenter >> defaultOutputPort [ 
 
-	^ self categoryListPresenter
+	^ self categoryListPresenter defaultOutputPort
 ]
 
 { #category : 'initialization' }
@@ -71,11 +71,4 @@ StSettingsCategoriesPresenter >> settingsCategories [
 
 	^ settingsCategories
 		ifNil: [ settingsCategories := self defaultSettingsCategories ]
-]
-
-{ #category : 'REMOVE' }
-StSettingsCategoriesPresenter >> updateDetailSetting: item [ 
-	<delete>
-	self owner updateDetailSetting: item node allChildren
-	
 ]

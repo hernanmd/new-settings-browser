@@ -4,9 +4,9 @@ Class {
 	#instVars : [
 		'treeHolder'
 	],
-	#category : 'NewSettingsBrowser-Modernized',
+	#category : 'NewSettingsBrowser-Model',
 	#package : 'NewSettingsBrowser',
-	#tag : 'Modernized'
+	#tag : 'Model'
 }
 
 { #category : 'opening' }
@@ -46,6 +46,11 @@ StSettingsTree >> nodeList: aCollection [
 StSettingsTree >> settingsKeywords [
 
 	^ self class settingsKeywords
+]
+
+{ #category : 'accessing' }
+StSettingsTree >> sortBlock [
+	^ [:a :b | self itemSortBlock value: a declaration value: b declaration ]
 ]
 
 { #category : 'instance creation' }

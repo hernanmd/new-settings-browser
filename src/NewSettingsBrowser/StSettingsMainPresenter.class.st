@@ -4,7 +4,6 @@ Class {
 	#instVars : [
 		'toolbarPresenter',
 		'detailsPresenter',
-		'settingsPanesPresenter',
 		'mainCategoriesPresenter'
 	],
 	#category : 'NewSettingsBrowser-Modernized',

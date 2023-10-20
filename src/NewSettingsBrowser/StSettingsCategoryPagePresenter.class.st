@@ -40,9 +40,10 @@ StSettingsCategoryPagePresenter >> initializePresenters [
 StSettingsCategoryPagePresenter >> setModel: aNode [ 
 
 	pageTitle 
-		label: aNode item label;
+		label: aNode label;
 		addStyle: 'pageTitle'.
-	settingsListPresenter items: aNode allChildren
+	settingsListPresenter items: (aNode allChildren collect: [ : s | 
+		self instantiate: s presenterClass on: s ])
 ]
 
 { #category : 'accessing' }
