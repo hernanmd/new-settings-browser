@@ -4,6 +4,7 @@ Extension { #name : 'UITheme' }
 UITheme class >> asSettingPresenter: aString [ 
 
 	^ SpDropListPresenter new
-		dropListItems: PolymorphSystemSettings uiThemeClassChoices;
+		items: PolymorphSystemSettings uiThemeClassChoices;
+		display: [ : e | e name ];
 		yourself
 ]

@@ -29,6 +29,7 @@ StSettingSectionPresenter >> initializePresenters [
 
 	super initializePresenters.
 	detailSettingsListPresenter := self newComponentList
+		items: (settingNode allChildren collect: #asPresenter);
 		whenSelectedDo: [ self halt ];
 		whenSelectedItemChangedDo: [ : item | self halt ];
 		yourself

@@ -89,6 +89,8 @@ StSettingsApplication >> styleSheetString [
 		Font { #name : EnvironmentFont(#default), #size : 18 },
 		Container { #borderWidth: 10, #padding: 35 } ],
 	.pageStyle [ 
-		Draw { #backgroundColor: #transparent } ]
+		Draw { #backgroundColor: #transparent },
+		Geometry { #height: 25 },
+		Container { #padding: 5 } ]
 ]'
 ]

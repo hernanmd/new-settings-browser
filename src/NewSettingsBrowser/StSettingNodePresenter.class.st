@@ -32,7 +32,7 @@ StSettingNodePresenter class >> with: aPragmaSetting [
 { #category : 'layout' }
 StSettingNodePresenter >> defaultLayout [
 
-	^ SpBoxLayout newTopToBottom 
+	^ SpBoxLayout newLeftToRight
 		add: #title expand: false;
 		add: #settingPresenter;
 		yourself

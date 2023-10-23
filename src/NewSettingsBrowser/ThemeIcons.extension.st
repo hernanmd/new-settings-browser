@@ -4,6 +4,7 @@ Extension { #name : 'ThemeIcons' }
 ThemeIcons >> asSettingPresenter: aString [ 
 
 	^ SpDropListPresenter new
-		setCollection: { self name };
+		items: { self };
+		display: [ : e | e name ];		
 		yourself
 ]
