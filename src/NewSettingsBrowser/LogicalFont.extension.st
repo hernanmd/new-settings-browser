@@ -1,16 +1,23 @@
 Extension { #name : 'LogicalFont' }
 
 { #category : '*NewSettingsBrowser' }
-LogicalFont >> asSettingPresenter: aString [ 
+LogicalFont >> asSettingPresenter: aSettingDeclaration [ 
 
 	| info |
-	
+
 	info := String streamContents: [ : stream |
 		stream 
 			<< self realFont textStyleName;
-			space;
-			<< self realFont pointSize asString ].
-	^ SpLabelPresenter new
-		label: info;
+			<< ' (';
+			<< self realFont pointSize asString;
+			<< ')' ].
+	
+	aSettingDeclaration parentName.
+	^ StSettingButtonPresenterItem basicNew
+		setModelBeforeInitialization: aSettingDeclaration;
+		initialize;
+		buttonLabel: info;
+		buttonFont: self realFont;
+		buttonAction: [ aSettingDeclaration getFont ];
 		yourself.
 ]

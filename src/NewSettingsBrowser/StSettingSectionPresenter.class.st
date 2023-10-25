@@ -19,8 +19,8 @@ StSettingSectionPresenter class >> with: aPragmaSetting [
 StSettingSectionPresenter >> defaultLayout [
 
 	^ SpBoxLayout newTopToBottom 
-		add: #title expand: false;
-		add: #detailSettingsListPresenter;
+		add: #title height: 30;
+		add: #detailSettingsListPresenter height: 200;
 		yourself
 ]
 
@@ -28,6 +28,7 @@ StSettingSectionPresenter >> defaultLayout [
 StSettingSectionPresenter >> initializePresenters [
 
 	super initializePresenters.
+	title addStyle: 'sectionTitle'.
 	detailSettingsListPresenter := self newComponentList
 		items: (settingNode allChildren collect: #asPresenter);
 		whenSelectedDo: [ self halt ];

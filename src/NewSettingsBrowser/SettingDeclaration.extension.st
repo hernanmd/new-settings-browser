@@ -4,5 +4,7 @@ Extension { #name : 'SettingDeclaration' }
 SettingDeclaration >> asSettingPresenter [
 	"Answer an appropriate <SpPresenter> container for the receiver's value"
 
-	^ self default asSettingPresenter: self label
+	^ self precondition value 
+		ifTrue: [ self default asSettingPresenter: self ]
+		ifFalse: [ SpNullPresenter new ]
 ]

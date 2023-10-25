@@ -21,7 +21,8 @@ StSettingsCategoryPagePresenter >> defaultInputPort [
 StSettingsCategoryPagePresenter >> defaultLayout [ 
 
 	^ SpBoxLayout newTopToBottom 
-		add: pageTitle expand: false;
+		spacing: 50;
+		add: pageTitle height: 40;
 		add: settingsListPresenter;
 		yourself
 ]

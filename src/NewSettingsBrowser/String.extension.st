@@ -1,11 +1,11 @@
 Extension { #name : 'String' }
 
 { #category : '*NewSettingsBrowser' }
-String >> asSettingPresenter: aString [ 
+String >> asSettingPresenter: aSettingDeclaration [ 
 
 	^ SpTextInputFieldPresenter new
 		beEditable;
-		placeholder: aString;
+		placeholder: aSettingDeclaration label;
 		text: self;
 		yourself
 ]

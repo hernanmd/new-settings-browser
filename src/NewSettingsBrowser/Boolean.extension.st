@@ -1,11 +1,11 @@
 Extension { #name : 'Boolean' }
 
 { #category : '*NewSettingsBrowser' }
-Boolean >> asSettingPresenter: aString [
+Boolean >> asSettingPresenter: aSettingDeclaration [
 
 	^ SpCheckBoxPresenter new
 		labelOnLeft;
 		state: self;
-		label: aString;
+		label: aSettingDeclaration label;
 		yourself
 ]

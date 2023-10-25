@@ -91,6 +91,10 @@ StSettingsApplication >> styleSheetString [
 	.pageStyle [ 
 		Draw { #backgroundColor: #transparent },
 		Geometry { #height: 25 },
-		Container { #padding: 5 } ]
+		Container { #padding: 5 } ],
+	.sectionTitle [ 
+		Container { #borderWidth: 10, #padding: 35 },
+		Draw { #backgroundColor: #veryLightGray },
+		Font { #size: 14 } ]
 ]'
 ]
