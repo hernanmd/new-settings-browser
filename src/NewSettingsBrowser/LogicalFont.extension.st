@@ -12,10 +12,7 @@ LogicalFont >> asSettingPresenter: aSettingDeclaration [
 			<< self realFont pointSize asString;
 			<< ')' ].
 	
-	aSettingDeclaration parentName.
-	^ StSettingButtonPresenterItem basicNew
-		setModelBeforeInitialization: aSettingDeclaration;
-		initialize;
+	^ (StSettingButtonPresenterItem on: aSettingDeclaration)
 		buttonLabel: info;
 		buttonFont: self realFont;
 		buttonAction: [ aSettingDeclaration getFont ];

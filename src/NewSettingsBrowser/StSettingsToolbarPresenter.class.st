@@ -4,9 +4,9 @@ Class {
 	#instVars : [
 		'searchInputPresenter'
 	],
-	#category : 'NewSettingsBrowser-Modernized',
+	#category : 'NewSettingsBrowser-UI',
 	#package : 'NewSettingsBrowser',
-	#tag : 'Modernized'
+	#tag : 'UI'
 }
 
 { #category : 'layout' }

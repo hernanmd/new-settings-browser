@@ -23,7 +23,11 @@ StSettingsTree >> newSettingTreeBuilderNodes [
 
 	builder := StSettingTreeBuilder new.
 	self pragmasDo: [ :p | builder buildPragma: p ].
-	^ builder nodeList collect: [ : n | n model: self ].
+	nodeList := builder nodeList.
+	nodeList do: [: n | n model: self ].
+	self checkForUnknownParent.
+	self checkForUnknownTarget.
+	^ nodeList 
 ]
 
 { #category : 'instance creation' }

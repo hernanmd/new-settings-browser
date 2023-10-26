@@ -10,9 +10,9 @@ Class {
 		'labelPresenter',
 		'iconPresenter'
 	],
-	#category : 'NewSettingsBrowser-Modernized',
+	#category : 'NewSettingsBrowser-UI',
 	#package : 'NewSettingsBrowser',
-	#tag : 'Modernized'
+	#tag : 'UI'
 }
 
 { #category : 'accessing' }

@@ -6,9 +6,9 @@ Class {
 		'detailsPresenter',
 		'mainCategoriesPresenter'
 	],
-	#category : 'NewSettingsBrowser-Modernized',
+	#category : 'NewSettingsBrowser-UI',
 	#package : 'NewSettingsBrowser',
-	#tag : 'Modernized'
+	#tag : 'UI'
 }
 
 { #category : 'initialization' }

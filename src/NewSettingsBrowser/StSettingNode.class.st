@@ -36,6 +36,18 @@ StSettingNode >> asPresenter [
 	^ self declaration asSettingPresenter
 ]
 
+{ #category : 'checking' }
+StSettingNode >> checkForUnknownTarget [
+
+	self parentNode 
+		ifNotNil: [:p | 
+			self declarationTarget 
+				ifNil: [ self declarationTarget: p declaration target ].
+			self declaration targetSelector 
+				ifNil: [ self declaration targetSelector: p declaration targetSelector ] ].
+	self allChildren do: [: c | c checkForUnknownTarget ]
+]
+
 { #category : 'accessing' }
 StSettingNode >> declaration [
 
@@ -46,6 +58,18 @@ StSettingNode >> declaration [
 StSettingNode >> declaration: aPragmaSetting [ 
 
 	declaration := aPragmaSetting
+]
+
+{ #category : 'as yet unclassified' }
+StSettingNode >> declarationTarget [
+
+	^ self declaration target
+]
+
+{ #category : 'as yet unclassified' }
+StSettingNode >> declarationTarget: anObject [
+
+	self declaration target: anObject
 ]
 
 { #category : 'testing' }
@@ -106,6 +130,17 @@ StSettingNode >> parentName: aSymbol [
 	parentName := aSymbol
 ]
 
+{ #category : 'accessing' }
+StSettingNode >> parentNode [
+
+	^ self model nodeNamed: self parentName
+]
+
+{ #category : 'accessing' }
+StSettingNode >> pragma [
+	^ pragma
+]
+
 { #category : 'initialization' }
 StSettingNode >> pragma: aPragma [
 
@@ -136,4 +171,10 @@ StSettingNode >> printOn: aStream [
 		nextPutAll: self allChildren size asString;
 		nextPutAll: ') '
 
+]
+
+{ #category : 'accessing' }
+StSettingNode >> settingDeclaration [
+
+	^ declaration
 ]

@@ -18,9 +18,9 @@ Class {
 	#instVars : [
 		'settingPresenter'
 	],
-	#category : 'NewSettingsBrowser-Modernized',
+	#category : 'NewSettingsBrowser-UI',
 	#package : 'NewSettingsBrowser',
-	#tag : 'Modernized'
+	#tag : 'UI'
 }
 
 { #category : 'instance creation' }

@@ -4,9 +4,9 @@ Class {
 	#instVars : [
 		'detailSettingsListPresenter'
 	],
-	#category : 'NewSettingsBrowser-Modernized',
+	#category : 'NewSettingsBrowser-UI',
 	#package : 'NewSettingsBrowser',
-	#tag : 'Modernized'
+	#tag : 'UI'
 }
 
 { #category : 'instance creation' }
@@ -30,6 +30,7 @@ StSettingSectionPresenter >> initializePresenters [
 	super initializePresenters.
 	title addStyle: 'sectionTitle'.
 	detailSettingsListPresenter := self newComponentList
+		addStyle: 'sectionStyle';
 		items: (settingNode allChildren collect: #asPresenter);
 		whenSelectedDo: [ self halt ];
 		whenSelectedItemChangedDo: [ : item | self halt ];

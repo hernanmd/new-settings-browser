@@ -4,9 +4,9 @@ Class {
 	#instVars : [
 		'iconMap'
 	],
-	#category : 'NewSettingsBrowser-Modernized',
+	#category : 'NewSettingsBrowser-UI',
 	#package : 'NewSettingsBrowser',
-	#tag : 'Modernized'
+	#tag : 'UI'
 }
 
 { #category : 'world menu' }
@@ -86,15 +86,17 @@ StSettingsApplication >> styleSheetString [
 	^ '.application [
     .superCategoryList [ Geometry { #height: 70 } ],
 	.pageTitle [ 
-		Font { #name : EnvironmentFont(#default), #size : 18 },
-		Container { #borderWidth: 10, #padding: 35 } ],
+		Font { #name : EnvironmentFont(#default), #size : 20 },
+		Geometry { #height: 50 } ],
 	.pageStyle [ 
 		Draw { #backgroundColor: #transparent },
-		Geometry { #height: 25 },
-		Container { #padding: 5 } ],
+		Container { #padding: 10 } ],
 	.sectionTitle [ 
 		Container { #borderWidth: 10, #padding: 35 },
 		Draw { #backgroundColor: #veryLightGray },
-		Font { #size: 14 } ]
+		Font { #size: 14 } ],
+	.sectionStyle [ 
+		Draw { #backgroundColor: #transparent }
+	 ]
 ]'
 ]

@@ -60,7 +60,7 @@ StSettingPresenterItem >> model [
 	^ model
 ]
 
-{ #category : 'initialization' }
+{ #category : 'accessing - model' }
 StSettingPresenterItem >> setModelBeforeInitialization: aModel [
 
 	model := aModel
