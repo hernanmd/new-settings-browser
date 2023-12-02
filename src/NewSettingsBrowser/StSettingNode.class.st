@@ -60,13 +60,13 @@ StSettingNode >> declaration: aPragmaSetting [
 	declaration := aPragmaSetting
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 StSettingNode >> declarationTarget [
 
 	^ self declaration target
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 StSettingNode >> declarationTarget: anObject [
 
 	self declaration target: anObject

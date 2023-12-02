@@ -1,3 +1,6 @@
+"
+It represents a wrapper for an individual setting presenter. Subclasses may override accordingly to the ""type"" of value to set. For example, this class provides a label and a description presenters, but subclasses may also add a Number or Float presenter for the value to set.
+"
 Class {
 	#name : 'StSettingPresenterItem',
 	#superclass : 'SpPresenter',
@@ -36,6 +39,7 @@ StSettingPresenterItem >> descriptionPresenter: anObject [
 
 { #category : 'initialization' }
 StSettingPresenterItem >> initializePresenters [
+	"Set a label and description presenters as baseline for every setting"
 
 	labelPresenter := self newLabel label: self model label.
 	descriptionPresenter := self newText text: self model description.

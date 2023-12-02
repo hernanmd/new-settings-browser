@@ -3,9 +3,7 @@ Extension { #name : 'Boolean' }
 { #category : '*NewSettingsBrowser' }
 Boolean >> asSettingPresenter: aSettingDeclaration [
 
-	^ SpCheckBoxPresenter new
-		labelOnLeft;
+	^ (StSettingBooleanPresenterItem on: aSettingDeclaration)
 		state: self;
-		label: aSettingDeclaration label;
 		yourself
 ]

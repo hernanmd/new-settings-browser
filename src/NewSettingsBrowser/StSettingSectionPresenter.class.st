@@ -32,7 +32,7 @@ StSettingSectionPresenter >> initializePresenters [
 	detailSettingsListPresenter := self newComponentList
 		addStyle: 'sectionStyle';
 		items: (settingNode allChildren collect: #asPresenter);
-		whenSelectedDo: [ self halt ];
+		whenSelectedDo: [ : item | self halt ];
 		whenSelectedItemChangedDo: [ : item | self halt ];
 		yourself
 	

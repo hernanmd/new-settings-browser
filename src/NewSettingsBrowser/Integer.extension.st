@@ -1,9 +1,9 @@
 Extension { #name : 'Integer' }
 
 { #category : '*NewSettingsBrowser' }
-Integer >> asSettingPresenter: aString [ 
+Integer >> asSettingPresenter: aSettingDeclaration [ 
 
-	^ SpNumberInputFieldPresenter new
+	^ (StSettingNumberPresenterItem on: aSettingDeclaration)
 		beInteger;
 		number: self;
 		yourself

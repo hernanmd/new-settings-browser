@@ -33,7 +33,6 @@ StSettingNodePresenter class >> with: aPragmaSetting [
 StSettingNodePresenter >> defaultLayout [
 
 	^ SpBoxLayout newLeftToRight
-		add: #title ;
 		add: #settingPresenter;
 		yourself
 ]

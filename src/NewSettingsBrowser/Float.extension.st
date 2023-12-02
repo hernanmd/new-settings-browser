@@ -1,9 +1,9 @@
 Extension { #name : 'Float' }
 
 { #category : '*NewSettingsBrowser' }
-Float >> asSettingPresenter: aString [ 
+Float >> asSettingPresenter: aSettingDeclaration [ 
 
-	^ SpNumberInputFieldPresenter new
+	^ (StSettingNumberPresenterItem on: aSettingDeclaration)
 		beFloat;
 		number: self;
 		yourself
