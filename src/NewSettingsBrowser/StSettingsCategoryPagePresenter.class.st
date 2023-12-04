@@ -21,8 +21,7 @@ StSettingsCategoryPagePresenter >> defaultInputPort [
 StSettingsCategoryPagePresenter >> defaultLayout [ 
 
 	^ SpBoxLayout newTopToBottom 
-		spacing: 50;
-		add: pageTitle height: 40;
+		add: pageTitle height: 5;
 		add: settingsListPresenter;
 		yourself
 ]
@@ -44,7 +43,9 @@ StSettingsCategoryPagePresenter >> setModel: aNode [
 		label: aNode label;
 		addStyle: 'pageTitle'.
 	settingsListPresenter items: (aNode allChildren collect: [ : s | 
-		self instantiate: s presenterClass on: s ])
+		(self instantiate: s presenterClass on: s)
+			addStyle: 'settingItemStyle';
+			yourself ])
 ]
 
 { #category : 'accessing' }

@@ -41,17 +41,11 @@ StSettingNodePresenter >> defaultLayout [
 StSettingNodePresenter >> initializePresenters [
 
 	super initializePresenters.
-	settingPresenter := self settingNodeAsPresenter.
+	settingPresenter := self settingNode asPresenter.
 ]
 
 { #category : 'accessing' }
 StSettingNodePresenter >> settingNode [
 
 	^ settingNode
-]
-
-{ #category : 'initialization' }
-StSettingNodePresenter >> settingNodeAsPresenter [
-
-	^ self settingNode asPresenter.
 ]

@@ -18,6 +18,14 @@ Class {
 { #category : 'layout' }
 StSettingPresenterItem >> defaultLayout [
 
+"	^ SpGridLayout new 
+		beColumnNotHomogeneous;
+		build: [ :builder | builder
+			add: labelPresenter; nextRow;
+			add: setterPresenter; nextRow;
+			add: descriptionPresenter; nextRow ];
+		yourself"
+
 	^ SpBoxLayout newLeftToRight 
 		add: labelPresenter width: 200;
 		add: setterPresenter width: 150;

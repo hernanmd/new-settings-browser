@@ -87,16 +87,17 @@ StSettingsApplication >> styleSheetString [
     .superCategoryList [ Geometry { #height: 70 } ],
 	.pageTitle [ 
 		Font { #name : EnvironmentFont(#default), #size : 20 },
-		Geometry { #height: 20 } ],
+		Geometry { #height: 1 } ],
 	.pageStyle [ 
 		Draw { #backgroundColor: #transparent },
 		Container { #padding: 2 } ],
 	.sectionTitle [ 
-		Container { #borderWidth: 10, #padding: 15 },
 		Draw { #backgroundColor: #veryLightGray },
 		Font { #size: 14 } ],
 	.sectionStyle [ 
 		Draw { #backgroundColor: #transparent }
-	 ]
+	 ],
+	.settingItemStyle [ 
+		Container { #borderWidth: 10, #padding: 25 } ]
 ]'
 ]

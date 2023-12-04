@@ -6,7 +6,7 @@ Class {
 	#tag : 'Widgets'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'initialization' }
 StSettingDropListPresenterItem >> initializePresenters [ 
 
 	super initializePresenters.
