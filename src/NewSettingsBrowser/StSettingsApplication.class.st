@@ -98,6 +98,8 @@ StSettingsApplication >> styleSheetString [
 		Draw { #backgroundColor: #transparent }
 	 ],
 	.settingItemStyle [ 
-		Container { #borderWidth: 10, #padding: 25 } ]
-]'
+		Container { #borderWidth: 5 } ],
+	.descriptionStyle [ 
+		Draw { #backgroundColor: #' , Smalltalk ui theme windowColor asHexString , ' } ]
+]'.
 ]

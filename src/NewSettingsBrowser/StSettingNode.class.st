@@ -79,6 +79,12 @@ StSettingNode >> hasChildren [
 ]
 
 { #category : 'accessing' }
+StSettingNode >> item [
+
+	^ declaration
+]
+
+{ #category : 'accessing' }
 StSettingNode >> label [
 
 	^ self declaration label

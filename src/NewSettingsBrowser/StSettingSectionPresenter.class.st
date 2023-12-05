@@ -1,8 +1,12 @@
+"
+It represents a setting node Spec presenter with children (a section).
+"
 Class {
 	#name : 'StSettingSectionPresenter',
 	#superclass : 'StSettingPresenter',
 	#instVars : [
-		'detailSettingsListPresenter'
+		'detailSettingsListPresenter',
+		'detailBox'
 	],
 	#category : 'NewSettingsBrowser-UI',
 	#package : 'NewSettingsBrowser',
@@ -18,9 +22,11 @@ StSettingSectionPresenter class >> with: aPragmaSetting [
 { #category : 'layout' }
 StSettingSectionPresenter >> defaultLayout [
 
-	^ SpBoxLayout newTopToBottom 
+	^ SpBoxLayout newTopToBottom
 		add: #title height: 30;
-		add: #detailSettingsListPresenter height: 200;
+		add: (detailBox := SpBoxLayout newTopToBottom
+			spacing: 20;
+			yourself);
 		yourself
 ]
 
@@ -29,11 +35,15 @@ StSettingSectionPresenter >> initializePresenters [
 
 	super initializePresenters.
 	title addStyle: 'sectionTitle'.
-	detailSettingsListPresenter := self newComponentList
-		addStyle: 'sectionStyle';
-		items: (settingNode allChildren collect: #asPresenter);
-		whenSelectedDo: [ : item | self halt ];
-		whenSelectedItemChangedDo: [ : item | self halt ];
-		yourself
+	self layout: self defaultLayout
+
 	
+]
+
+{ #category : 'initialization' }
+StSettingSectionPresenter >> updatePresenter [
+
+	super updatePresenter.
+	settingNode allChildren do: [ :each |
+		detailBox add: each asPresenter expand: false ]
 ]

@@ -1,5 +1,5 @@
 "
-A StSettingNodePresenter is used by a SettingCollector as a node for setting trees. Built trees can be viewed by a SettingBrowser
+It represents a setting node (presenter) without children.
 
 Instance Variables
 	contents:		<Collection of SettingTreeNode>
@@ -33,6 +33,7 @@ StSettingNodePresenter class >> with: aPragmaSetting [
 StSettingNodePresenter >> defaultLayout [
 
 	^ SpBoxLayout newLeftToRight
+		vAlignCenter;
 		add: #settingPresenter;
 		yourself
 ]

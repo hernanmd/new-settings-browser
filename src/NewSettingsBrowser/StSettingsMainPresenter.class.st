@@ -57,7 +57,7 @@ StSettingsMainPresenter >> initializePresenters [
 	toolbarPresenter := self instantiate: StSettingsToolbarPresenter on: self.
 	"settingsPanesPresenter := self instantiate: StSettingsPanesPresenter on: self."
 	mainCategoriesPresenter := self instantiate: StSettingsCategoriesPresenter on: self.
-	detailsPresenter := self instantiate: StSettingsCategoryPagePresenter on: self.
+	detailsPresenter := self instantiate: StSettingsPagePresenter on: self.
 ]
 
 { #category : 'initialization' }
@@ -75,5 +75,5 @@ StSettingsMainPresenter >> updateDetailSetting: aCollection [
 
 	self layout 
 		replace: detailsPresenter
-		with: (self instantiate: StSettingsCategoryPagePresenter on: aCollection)
+		with: (self instantiate: StSettingsPagePresenter on: aCollection)
 ]

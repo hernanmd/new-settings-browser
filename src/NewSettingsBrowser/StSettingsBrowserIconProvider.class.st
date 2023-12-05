@@ -9,7 +9,8 @@ Class {
 { #category : 'accessing' }
 StSettingsBrowserIconProvider >> iconNamed: aName ifAbsent: aBlock [
 
-	aName ifNil: [ ^ aBlock value ].
+	(aName isNil or: [ (StSettingIcons respondsTo: aName) not ])
+		ifTrue: [ ^ aBlock value ].
 
-	^ StSettingIcons perform: aName
+	 ^ StSettingIcons perform: aName
 ]
