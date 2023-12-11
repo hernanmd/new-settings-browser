@@ -11,8 +11,10 @@ BaselineOfNewSettingsBrowser >> baseline: spec [
 	spec
 		for: #(common)
 		do: [ 
+			spec
+				baseline: 'ColorPicker' with: [ spec repository: 'github://pharo-graphics/ColorPicker/src' ].
 			spec 
-				package: 'NewSettingsBrowser';
+				package: 'NewSettingsBrowser'        with: [ spec requires: #(ColorPicker) ];
 				package: 'NewSettingsBrowser-Tests'	with: [ spec requires: #(NewSettingsBrowser) ].
 			spec 
 				group: 'Core' 						with: #('NewSettingsBrowser');

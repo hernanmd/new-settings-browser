@@ -1,10 +1,9 @@
 Extension { #name : 'Color' }
 
 { #category : '*NewSettingsBrowser' }
-Color >> asSettingPresenter: aString [ 
+Color >> asSettingPresenter: aSettingDeclaration [ 
 
-	^ SpTextInputFieldPresenter new
-		beEditable;
-		text: self name;
-		yourself
+	^ (StSettingButtonPresenterItem on: aSettingDeclaration)
+		buttonAction: [ aSettingDeclaration getFont ];
+		yourself.
 ]

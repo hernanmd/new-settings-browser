@@ -1,9 +1,9 @@
 Extension { #name : 'SHStyleElement' }
 
 { #category : '*NewSettingsBrowser' }
-SHStyleElement >> asSettingPresenter: aString [ 
+SHStyleElement >> asSettingPresenter: aSettingDeclaration [ 
 
-	^ SpLabelPresenter new
-		label: self asString;
+	^ (StSettingTextPresenterItem on: aSettingDeclaration)
+		value: self;
 		yourself
 ]

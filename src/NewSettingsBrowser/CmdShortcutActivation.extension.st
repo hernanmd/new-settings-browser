@@ -1,9 +1,9 @@
 Extension { #name : 'CmdShortcutActivation' }
 
 { #category : '*NewSettingsBrowser' }
-CmdShortcutActivation >> asSettingPresenter: aString [ 
+CmdShortcutActivation >> asSettingPresenter: aDeclaration [ 
 
-	^ SpTextInputFieldPresenter new
-		text: self keyCombination asString;
+	^ (StSettingTextPresenterItem on: aDeclaration) 
+		value: self keyCombination asString;
 		yourself
 ]

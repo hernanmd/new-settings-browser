@@ -14,6 +14,16 @@ Class {
 	#tag : 'UI'
 }
 
+{ #category : 'adding' }
+StSettingsPagePresenter >> addToSettingsBox: aPresenter [
+
+	settingsBox 
+		add: ((self instantiate: aPresenter presenterClass on: aPresenter)
+			addStyle: 'settingItemStyle';
+			yourself)
+		expand: false
+]
+
 { #category : 'initialization' }
 StSettingsPagePresenter >> defaultInputPort [ 
 
@@ -47,9 +57,5 @@ StSettingsPagePresenter >> setModel: aNode [
 	
 	settingsBox removeAll.
 	aNode allChildren do: [ : s | 
-		settingsBox 
-			add: ((self instantiate: s presenterClass on: s)
-				addStyle: 'settingItemStyle';
-				yourself)
-			expand: false ]
+		self addToSettingsBox: s ]
 ]

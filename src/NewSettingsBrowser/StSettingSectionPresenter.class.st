@@ -44,6 +44,13 @@ StSettingSectionPresenter >> initializePresenters [
 StSettingSectionPresenter >> updatePresenter [
 
 	super updatePresenter.
-	settingNode allChildren do: [ :each |
-		detailBox add: each asPresenter expand: false ]
+	settingNode hasChildren
+		ifTrue: [ settingNode allChildren do: [ :each | self owner addToSettingsBox: each ]	 ]
+		ifFalse: [ detailBox add: settingNode asPresenter expand: false ]
+]
+
+{ #category : 'updating' }
+StSettingSectionPresenter >> updatePresenterChildren: aStSettingNode [ 
+
+	aStSettingNode updatePresenterOn: detailBox
 ]

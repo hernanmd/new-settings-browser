@@ -1,3 +1,6 @@
+"
+Wrapper for settings containing a `Number` type. Users send `#beFloat` or `#beInteger` to configure the wrapper.
+"
 Class {
 	#name : 'StSettingNumberPresenterItem',
 	#superclass : 'StSettingPresenterItem',
@@ -25,9 +28,9 @@ StSettingNumberPresenterItem >> initializePresenters [
 	setterPresenter := self newNumberInput.
 ]
 
-{ #category : 'api' }
-StSettingNumberPresenterItem >> number: anInteger [ 
-	"Set the receiver's value to anInteger"
+{ #category : 'accessing' }
+StSettingNumberPresenterItem >> value: aNumber [ 
+	"Set the receiver's value to aNumber"
 
-	self setterPresenter number: anInteger
+	self setterPresenter number: aNumber
 ]

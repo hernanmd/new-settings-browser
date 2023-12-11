@@ -4,6 +4,6 @@ Extension { #name : 'Boolean' }
 Boolean >> asSettingPresenter: aSettingDeclaration [
 
 	^ (StSettingBooleanPresenterItem on: aSettingDeclaration)
-		state: self;
+		value: self;
 		yourself
 ]

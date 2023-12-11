@@ -5,6 +5,6 @@ Float >> asSettingPresenter: aSettingDeclaration [
 
 	^ (StSettingNumberPresenterItem on: aSettingDeclaration)
 		beFloat;
-		number: self;
+		value: self;
 		yourself
 ]

@@ -5,6 +5,6 @@ Integer >> asSettingPresenter: aSettingDeclaration [
 
 	^ (StSettingNumberPresenterItem on: aSettingDeclaration)
 		beInteger;
-		number: self;
+		value: self;
 		yourself
 ]

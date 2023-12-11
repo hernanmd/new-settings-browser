@@ -1,3 +1,6 @@
+"
+Wrapper for settings containing a `Booleam` type.
+"
 Class {
 	#name : 'StSettingBooleanPresenterItem',
 	#superclass : 'StSettingPresenterItem',
@@ -13,8 +16,8 @@ StSettingBooleanPresenterItem >> initializePresenters [
 	setterPresenter := self newCheckBox.
 ]
 
-{ #category : 'initialization' }
-StSettingBooleanPresenterItem >> state: aBoolean [
+{ #category : 'accessing' }
+StSettingBooleanPresenterItem >> value: aBoolean [
 
 	self setterPresenter state: aBoolean
 ]

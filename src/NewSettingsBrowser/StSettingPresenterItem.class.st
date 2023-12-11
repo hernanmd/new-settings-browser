@@ -1,5 +1,9 @@
 "
-It represents a wrapper for an individual setting presenter. Subclasses may override accordingly to the ""type"" of value to set. For example, this class provides a label and a description presenters, but subclasses may also add a Number or Float presenter for the value to set.
+It represents a wrapper for an individual setting presenter to provide a more customized presentation in the settings browser. Subclasses may override accordingly to the ""type"" of value to set. For example, this class provides a label and a description presenters, but subclasses may also add a Number or Float presenter for the value to set (see `StSettingNumberPresenterItem` for details).
+
+Subclasses may want to override `#value:` to abstract the way the wrapped presenter is configured, so instead of sending `#number:` or `#text:` clients can use directly `#value:`
+
+The wrapped presenter is hold in `setterPresenter` instance variable.
 "
 Class {
 	#name : 'StSettingPresenterItem',
@@ -84,4 +88,11 @@ StSettingPresenterItem >> setterPresenter [
 StSettingPresenterItem >> setterPresenter: anObject [
 
 	setterPresenter := anObject
+]
+
+{ #category : 'accessing' }
+StSettingPresenterItem >> value: anObject [ 
+	"Set the receiver's value to anObject"
+
+	self subclassResponsibility
 ]

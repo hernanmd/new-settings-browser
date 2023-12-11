@@ -184,3 +184,8 @@ StSettingNode >> settingDeclaration [
 
 	^ declaration
 ]
+
+{ #category : 'accessing' }
+StSettingNode >> updatePresenterOn: aSpBoxLayout [ 
+	self shouldBeImplemented.
+]

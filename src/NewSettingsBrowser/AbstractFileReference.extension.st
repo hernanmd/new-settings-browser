@@ -3,7 +3,7 @@ Extension { #name : 'AbstractFileReference' }
 { #category : '*NewSettingsBrowser' }
 AbstractFileReference >> asSettingPresenter: aSettingDeclaration [ 
 
-	^ SpTextInputFieldPresenter new
-		text: self fullName;
+	^ (StSettingTextPresenterItem on: aSettingDeclaration)
+		value: self;
 		yourself
 ]
