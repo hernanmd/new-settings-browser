@@ -24,8 +24,8 @@ StSettingPresenterItem >> defaultLayout [
 
 	^ SpBoxLayout newLeftToRight
 		vAlignCenter;
-		add: labelPresenter width: 200;
-		add: setterPresenter width: 150;
+		add: labelPresenter width: 300;
+		add: setterPresenter width: 200;
 		add: descriptionPresenter;
 		yourself
 ]
@@ -46,7 +46,9 @@ StSettingPresenterItem >> descriptionPresenter: anObject [
 StSettingPresenterItem >> initializePresenters [
 	"Set a label and description presenters as baseline for every setting"
 
-	labelPresenter := self newLabel label: self model label.
+	labelPresenter := self newText 
+		addStyle: 'descriptionStyle';
+		text: self model label.
 	descriptionPresenter := self newText 
 		text: self model description;
 		addStyle: 'descriptionStyle';

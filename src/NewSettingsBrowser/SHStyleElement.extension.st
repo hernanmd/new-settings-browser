@@ -3,7 +3,7 @@ Extension { #name : 'SHStyleElement' }
 { #category : '*NewSettingsBrowser' }
 SHStyleElement >> asSettingPresenter: aSettingDeclaration [ 
 
-	^ (StSettingTextPresenterItem on: aSettingDeclaration)
+	^ (StMultipleDropListPresenterItem on: aSettingDeclaration)
 		value: self;
 		yourself
 ]

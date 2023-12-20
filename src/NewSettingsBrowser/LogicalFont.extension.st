@@ -12,7 +12,7 @@ LogicalFont >> asSettingPresenter: aSettingDeclaration [
 			<< self realFont pointSize asString;
 			<< ')' ].
 	
-	^ (StSettingButtonPresenterItem on: aSettingDeclaration)
+	^ (StSettingSHStyleButtonPresenterItem on: aSettingDeclaration)
 		buttonLabel: info;
 		buttonFont: self realFont;
 		buttonAction: [ aSettingDeclaration getFont ];

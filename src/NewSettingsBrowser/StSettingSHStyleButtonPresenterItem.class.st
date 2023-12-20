@@ -1,5 +1,5 @@
 Class {
-	#name : 'StSettingButtonPresenterItem',
+	#name : 'StSettingSHStyleButtonPresenterItem',
 	#superclass : 'StSettingPresenterItem',
 	#category : 'NewSettingsBrowser-Widgets',
 	#package : 'NewSettingsBrowser',
@@ -7,25 +7,25 @@ Class {
 }
 
 { #category : 'accessing' }
-StSettingButtonPresenterItem >> buttonAction: aFullBlockClosure [ 
+StSettingSHStyleButtonPresenterItem >> buttonAction: aFullBlockClosure [ 
 
 	self setterPresenter action: aFullBlockClosure
 ]
 
 { #category : 'font accessing' }
-StSettingButtonPresenterItem >> buttonFont: aLogicalFont [ 
+StSettingSHStyleButtonPresenterItem >> buttonFont: aLogicalFont [ 
 
 	self setterPresenter font: aLogicalFont
 ]
 
 { #category : 'initialization' }
-StSettingButtonPresenterItem >> buttonLabel: aString [
+StSettingSHStyleButtonPresenterItem >> buttonLabel: aString [
 
 	self setterPresenter label: aString.
 ]
 
 { #category : 'initialization' }
-StSettingButtonPresenterItem >> initializePresenters [ 
+StSettingSHStyleButtonPresenterItem >> initializePresenters [ 
 
 	super initializePresenters.
 	setterPresenter := self newButton

@@ -3,7 +3,7 @@ Extension { #name : 'Color' }
 { #category : '*NewSettingsBrowser' }
 Color >> asSettingPresenter: aSettingDeclaration [ 
 
-	^ (StSettingButtonPresenterItem on: aSettingDeclaration)
-		buttonAction: [ aSettingDeclaration getFont ];
+	^ (StSettingSHStyleButtonColorPresenterItem on: aSettingDeclaration)
+		buttonAction: [ aSettingDeclaration getColor ];
 		yourself.
 ]
