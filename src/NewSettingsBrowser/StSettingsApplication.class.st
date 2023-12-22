@@ -1,3 +1,6 @@
+"
+Holds icons and styles for the Pharo Settings Browser.
+"
 Class {
 	#name : 'StSettingsApplication',
 	#superclass : 'SpApplication',

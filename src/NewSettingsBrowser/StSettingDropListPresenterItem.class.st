@@ -12,7 +12,13 @@ StSettingDropListPresenterItem >> initializePresenters [
 	super initializePresenters.
 	setterPresenter := self newDropList
 		items: self model domainValues;
-		display: [ : item | item name ];
+		display: [ : item | item asString ];
 		selectIndex: self model index;
 		yourself
+]
+
+{ #category : 'accessing' }
+StSettingDropListPresenterItem >> value: anObject [
+
+	setterPresenter items: anObject
 ]

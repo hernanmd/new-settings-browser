@@ -35,7 +35,9 @@ StMultipleDropListPresenterItem >> initializePresenters [
 { #category : 'accessing' }
 StMultipleDropListPresenterItem >> value: aSHStyleElement [ 
 
-	colorSettingItemPresenter buttonColor: aSHStyleElement color.
+	self flag: #delete.
+	colorSettingItemPresenter 
+		buttonColor: aSHStyleElement color.
 	fontStylePresenter selectItem: aSHStyleElement emphasis.
 
 ]
