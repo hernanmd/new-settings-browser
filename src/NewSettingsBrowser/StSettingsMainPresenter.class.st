@@ -1,6 +1,6 @@
 Class {
 	#name : 'StSettingsMainPresenter',
-	#superclass : 'SpPresenter',
+	#superclass : 'StSettingsAbstracPresenter',
 	#instVars : [
 		'toolbarPresenter',
 		'detailsPresenter',
@@ -36,6 +36,7 @@ StSettingsMainPresenter >> defaultInputPort [
 StSettingsMainPresenter >> defaultLayout [
 
 	^ SpBoxLayout newTopToBottom 
+		spacing: 3;
 		add: toolbarPresenter height: self class toolbarHeight;
 		add: (SpPanedLayout newHorizontal 
 			positionOfSlider: 0.2;		

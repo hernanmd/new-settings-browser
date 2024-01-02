@@ -4,7 +4,7 @@ It represents a setting category page with setting sections and settings. The pa
 "
 Class {
 	#name : 'StSettingsPagePresenter',
-	#superclass : 'SpPresenter',
+	#superclass : 'StSettingsAbstracPresenter',
 	#instVars : [
 		'pageTitle',
 		'settingsBox'
@@ -18,9 +18,7 @@ Class {
 StSettingsPagePresenter >> addToSettingsBox: aPresenter [
 
 	settingsBox 
-		add: ((self instantiate: aPresenter presenterClass on: aPresenter)
-			addStyle: 'settingItemStyle';
-			yourself)
+		add: (self instantiate: aPresenter presenterClass on: aPresenter)
 		expand: false
 ]
 
@@ -56,6 +54,19 @@ StSettingsPagePresenter >> setModel: aNode [
 		addStyle: 'pageTitle'.
 	
 	settingsBox removeAll.
-	aNode allChildren do: [ : s | 
-		self addToSettingsBox: s ]
+	self updatePresenterTree: aNode level: 1.
+]
+
+{ #category : 'accessing' }
+StSettingsPagePresenter >> updatePresenterTree: aStSettingNode level: anInteger [ 
+
+	aStSettingNode allChildren do: [ : aSettingNode | 
+		| nodePresenter |
+
+		nodePresenter := self instantiate: aSettingNode presenterClass on: aSettingNode.
+		nodePresenter sectionTitleStyle: 'sectionTitleL' , anInteger asString.	
+		settingsBox 
+			add: nodePresenter
+			expand: false.
+		self updatePresenterTree: aSettingNode level: anInteger + 1 ]
 ]

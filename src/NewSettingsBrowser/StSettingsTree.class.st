@@ -16,6 +16,13 @@ StSettingsTree class >> settingsKeywords [
 	^ (Pragma allNamed: #systemsettings) collect: [: p | p method selector ]
 ]
 
+{ #category : 'accessing' }
+StSettingsTree >> defaultCategories [
+	"Answer a <Collection> of <StSettingNode> representing the default main setting categories in the system"
+
+	^ self treeRoots.
+]
+
 { #category : 'instance creation' }
 StSettingsTree >> newSettingTreeBuilderNodes [
 	"Walk over the receiver's pragmas. Build and answer a <Collection> of <StSettingNode>, each one representing a specific setting"
@@ -44,6 +51,13 @@ StSettingsTree >> newTreeHolder [
 StSettingsTree >> nodeList: aCollection [ 
 
 	nodeList := aCollection
+]
+
+{ #category : 'private - queries' }
+StSettingsTree >> processSearch: aString on: aStSettingsToolbarPresenter [ 
+
+	^ self treeRoots select: [ : settingNode |
+		settingNode matches: aString ]
 ]
 
 { #category : 'instance creation' }

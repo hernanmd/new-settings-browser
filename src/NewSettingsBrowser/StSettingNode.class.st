@@ -60,6 +60,13 @@ StSettingNode >> declaration: aPragmaSetting [
 	declaration := aPragmaSetting
 ]
 
+{ #category : 'private' }
+StSettingNode >> declarationDescriptions [
+	"Answer a <Collection> of <String> each one a word in the receiver's description"
+	
+	^ self declaration description substrings collect: #asLowercase.
+]
+
 { #category : 'accessing' }
 StSettingNode >> declarationTarget [
 
@@ -70,6 +77,15 @@ StSettingNode >> declarationTarget [
 StSettingNode >> declarationTarget: anObject [
 
 	self declaration target: anObject
+]
+
+{ #category : 'private' }
+StSettingNode >> descriptors [
+	"Answer a <Collection> of <String> each representing a receiver's textual description or identifier"
+	
+	^ (OrderedCollection withAll: self declarationDescriptions)
+		add: self label asLowercase;
+		yourself
 ]
 
 { #category : 'testing' }
@@ -94,6 +110,13 @@ StSettingNode >> label [
 StSettingNode >> label: aString [
 
 	declaration label: aString.
+]
+
+{ #category : 'testing' }
+StSettingNode >> matches: aString [ 
+	"Answer <true> if aString matches any of the receiver's descriptors"
+	
+	^ self label asLowercase beginsWithAnyOf: self descriptors
 ]
 
 { #category : 'accessing' }
@@ -183,9 +206,4 @@ StSettingNode >> printOn: aStream [
 StSettingNode >> settingDeclaration [
 
 	^ declaration
-]
-
-{ #category : 'accessing' }
-StSettingNode >> updatePresenterOn: aSpBoxLayout [ 
-	self shouldBeImplemented.
 ]

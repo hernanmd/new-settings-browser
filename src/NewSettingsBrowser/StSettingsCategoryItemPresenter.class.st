@@ -4,7 +4,7 @@ Represents a single setting browser category item.
 "
 Class {
 	#name : 'StSettingsCategoryItemPresenter',
-	#superclass : 'SpPresenter',
+	#superclass : 'StSettingsAbstracPresenter',
 	#instVars : [
 		'node',
 		'labelPresenter',
@@ -15,14 +15,7 @@ Class {
 	#tag : 'UI'
 }
 
-{ #category : 'accessing' }
-StSettingsCategoryItemPresenter class >> defaultCategories [
-	"Answer a <Collection> of <StSettingNodePresenter> representing the default main setting categories in the system"
-	
-	^ StSettingsTree new treeRoots
-]
-
-{ #category : 'initialization' }
+{ #category : 'layout' }
 StSettingsCategoryItemPresenter >> defaultLayout [ 
 
 	^ SpBoxLayout newTopToBottom 

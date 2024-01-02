@@ -1,6 +1,6 @@
 Class {
 	#name : 'StSettingPresenter',
-	#superclass : 'SpPresenter',
+	#superclass : 'StSettingsAbstracPresenter',
 	#instVars : [
 		'title',
 		'settingNode'
@@ -14,6 +14,18 @@ Class {
 StSettingPresenter >> initializePresenters [
 
 	title := self newLabel label: settingNode label. 
+]
+
+{ #category : 'initialization' }
+StSettingPresenter >> sectionTitle [
+
+	^ title
+]
+
+{ #category : 'initialization' }
+StSettingPresenter >> sectionTitleStyle: aString [
+
+	self sectionTitle addStyle: aString
 ]
 
 { #category : 'accessing - model' }

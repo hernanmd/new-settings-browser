@@ -26,7 +26,15 @@ Class {
 { #category : 'instance creation' }
 StSettingNodePresenter class >> with: aPragmaSetting [ 
 
+	self halt.
 	^ self new setItem: aPragmaSetting
+]
+
+{ #category : 'adding' }
+StSettingNodePresenter >> addChildren [
+
+	settingNode allChildren do: [ :each | 
+		self owner addToSettingsBox: each ]
 ]
 
 { #category : 'layout' }
@@ -41,12 +49,8 @@ StSettingNodePresenter >> defaultLayout [
 { #category : 'initialization' }
 StSettingNodePresenter >> initializePresenters [
 
+	self addStyle: 'settingItemStyle'.
+	settingPresenter := settingNode asPresenter.
 	super initializePresenters.
-	settingPresenter := self settingNode asPresenter.
-]
 
-{ #category : 'accessing' }
-StSettingNodePresenter >> settingNode [
-
-	^ settingNode
 ]

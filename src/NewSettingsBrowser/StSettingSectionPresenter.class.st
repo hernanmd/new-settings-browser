@@ -23,7 +23,7 @@ StSettingSectionPresenter class >> with: aPragmaSetting [
 StSettingSectionPresenter >> defaultLayout [
 
 	^ SpBoxLayout newTopToBottom
-		add: #title height: 30;
+		add: title height: 30;
 		add: (detailBox := SpBoxLayout newTopToBottom
 			spacing: 20;
 			yourself);
@@ -34,23 +34,5 @@ StSettingSectionPresenter >> defaultLayout [
 StSettingSectionPresenter >> initializePresenters [
 
 	super initializePresenters.
-	title addStyle: 'sectionTitle'.
-	self layout: self defaultLayout
-
-	
-]
-
-{ #category : 'initialization' }
-StSettingSectionPresenter >> updatePresenter [
-
-	super updatePresenter.
-	settingNode hasChildren
-		ifTrue: [ settingNode allChildren do: [ :each | self owner addToSettingsBox: each ]	 ]
-		ifFalse: [ detailBox add: settingNode asPresenter expand: false ]
-]
-
-{ #category : 'updating' }
-StSettingSectionPresenter >> updatePresenterChildren: aStSettingNode [ 
-
-	aStSettingNode updatePresenterOn: detailBox
+	self layout: self defaultLayout.	
 ]

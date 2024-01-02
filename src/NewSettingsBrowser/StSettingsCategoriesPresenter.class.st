@@ -4,7 +4,7 @@ Events triggered by clicking a category are defined in my owner through the tran
 "
 Class {
 	#name : 'StSettingsCategoriesPresenter',
-	#superclass : 'SpPresenter',
+	#superclass : 'StSettingsAbstracPresenter',
 	#instVars : [
 		'categoryListPresenter',
 		'settingsCategories'
@@ -54,7 +54,7 @@ StSettingsCategoriesPresenter >> defaultOutputPort [
 StSettingsCategoriesPresenter >> defaultSettingsCategories [
 	"Answer a <Collection> of <StSettingNodePresenter> categories to be presented by default in the receiver"
 	
-	^ StSettingsCategoryItemPresenter defaultCategories
+	^ self settingsTree defaultCategories
 	
 ]
 

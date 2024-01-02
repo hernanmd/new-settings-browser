@@ -5,7 +5,8 @@ Class {
 	#name : 'StSettingsApplication',
 	#superclass : 'SpApplication',
 	#instVars : [
-		'iconMap'
+		'iconMap',
+		'settingsTree'
 	],
 	#category : 'NewSettingsBrowser-UI',
 	#package : 'NewSettingsBrowser',
@@ -68,10 +69,18 @@ StSettingsApplication >> newIconProvider [
 	^ StSettingsBrowserIconProvider new , SpPharoThemeIconProvider new
 ]
 
+{ #category : 'accessing' }
+StSettingsApplication >> settingsTree [
+	"Answer the receiver's <StSettingsTree>"
+
+	^ settingsTree
+]
+
 { #category : 'running' }
 StSettingsApplication >> start [
 	" Private - See superimplementor's comment "
 
+	settingsTree := StSettingsTree new.
 	(StSettingsMainPresenter newApplication: self) open
 ]
 
@@ -90,13 +99,22 @@ StSettingsApplication >> styleSheetString [
     .superCategoryList [ Geometry { #height: 70 } ],
 	.pageTitle [ 
 		Font { #name : EnvironmentFont(#default), #size : 20 },
-		Geometry { #height: 1 } ],
+		Geometry { #height: 15 } ],
 	.pageStyle [ 
 		Draw { #backgroundColor: #transparent },
 		Container { #padding: 2 } ],
-	.sectionTitle [ 
-		Draw { #backgroundColor: #veryLightGray },
+	.sectionTitleL1 [ 
+		Draw { #backgroundColor: #gray },
+		Font { #size: 16 } ],
+	.sectionTitleL2 [ 
+		Draw { #backgroundColor: #lightGray },
 		Font { #size: 14 } ],
+	.sectionTitleL3 [ 
+		Draw { #backgroundColor: #veryLightGray },
+		Font { #size: 12 } ],
+	.sectionTitleL4 [ 
+		Draw { #backgroundColor: #veryVeryLightGray },
+		Font { #size: 10 } ],
 	.sectionStyle [ 
 		Draw { #backgroundColor: #transparent }
 	 ],
