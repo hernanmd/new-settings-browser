@@ -56,7 +56,6 @@ StSettingsMainPresenter >> defaultOutputPort [
 StSettingsMainPresenter >> initializePresenters [
 
 	toolbarPresenter := self instantiate: StSettingsToolbarPresenter on: self.
-	"settingsPanesPresenter := self instantiate: StSettingsPanesPresenter on: self."
 	mainCategoriesPresenter := self instantiate: StSettingsCategoriesPresenter on: self.
 	detailsPresenter := self instantiate: StSettingsPagePresenter on: self.
 ]

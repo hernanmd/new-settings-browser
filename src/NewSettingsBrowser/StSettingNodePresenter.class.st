@@ -30,13 +30,6 @@ StSettingNodePresenter class >> with: aPragmaSetting [
 	^ self new setItem: aPragmaSetting
 ]
 
-{ #category : 'adding' }
-StSettingNodePresenter >> addChildren [
-
-	settingNode allChildren do: [ :each | 
-		self owner addToSettingsBox: each ]
-]
-
 { #category : 'layout' }
 StSettingNodePresenter >> defaultLayout [
 

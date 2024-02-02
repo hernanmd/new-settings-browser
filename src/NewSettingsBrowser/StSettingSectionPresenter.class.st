@@ -5,7 +5,6 @@ Class {
 	#name : 'StSettingSectionPresenter',
 	#superclass : 'StSettingPresenter',
 	#instVars : [
-		'detailSettingsListPresenter',
 		'detailBox'
 	],
 	#category : 'NewSettingsBrowser-UI',

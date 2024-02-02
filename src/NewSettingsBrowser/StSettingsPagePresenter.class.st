@@ -14,14 +14,6 @@ Class {
 	#tag : 'UI'
 }
 
-{ #category : 'adding' }
-StSettingsPagePresenter >> addToSettingsBox: aPresenter [
-
-	settingsBox 
-		add: (self instantiate: aPresenter presenterClass on: aPresenter)
-		expand: false
-]
-
 { #category : 'initialization' }
 StSettingsPagePresenter >> defaultInputPort [ 
 
@@ -48,6 +40,7 @@ StSettingsPagePresenter >> initializePresenters [
 
 { #category : 'accessing - model' }
 StSettingsPagePresenter >> setModel: aNode [ 
+	"Private - Set the receiver's content iterating recursively starting from aNode"
 
 	pageTitle 
 		label: aNode label;
@@ -59,7 +52,8 @@ StSettingsPagePresenter >> setModel: aNode [
 
 { #category : 'accessing' }
 StSettingsPagePresenter >> updatePresenterTree: aStSettingNode level: anInteger [ 
-
+	"Private - Recursively iterate aStSettingNode children using anInteger as 'level' indicator for title styling purposes"
+	
 	aStSettingNode allChildren do: [ : aSettingNode | 
 		| nodePresenter |
 

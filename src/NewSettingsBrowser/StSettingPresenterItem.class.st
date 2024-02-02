@@ -47,9 +47,13 @@ StSettingPresenterItem >> initializePresenters [
 	"Set a label and description presenters as baseline for every setting"
 
 	labelPresenter := self newText 
+		withoutScrollBars;
+		propagateNaturalHeight: false;	
 		addStyle: 'descriptionStyle';
 		text: self model label.
 	descriptionPresenter := self newText 
+		withoutScrollBars;
+		propagateNaturalHeight: false;
 		text: self model description;
 		addStyle: 'descriptionStyle';
 		yourself.
